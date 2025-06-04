@@ -1,0 +1,51 @@
+::ng-deep .mat-checkbox .mat-checkbox-frame {
+    transform: scale(0.8);
+}
+
+::ng-deep .mat-checkbox-checked .mat-checkbox-background {
+    transform: scale(0.8);
+}
+::ng-deep .mat-form-field.mat-form-field-appearance-fill.fuse-mat-no-subscript .mat-form-field-wrapper {
+    padding-bottom: 0;
+    margin-bottom: 0;
+    height: 40px;
+}
+::ng-deep .mat-form-field.mat-form-field-appearance-fill .mat-form-field-wrapper .mat-form-field-flex .mat-form-field-infix .mat-input-element {
+    padding: 10px 16px;
+    margin-top: 0;
+}
+::ng-deep .mat-form-field.mat-form-field-appearance-fill .mat-form-field-wrapper .mat-form-field-flex {
+    min-height: 40px;
+}
+
+.update-enquiry-form ::ng-deep .mat-form-field.mat-form-field-appearance-fill .mat-form-field-wrapper .mat-form-field-flex {
+    padding: 0 0px !important;
+    border-width: 1px;
+}
+
+.update-enquiry-form ::ng-deep .mat-form-field.mat-form-field-appearance-fill .mat-form-field-wrapper .mat-form-field-flex .mat-form-field-infix {
+    background: #0478572f !important;
+    border-radius: 6px;
+    // padding: 3px !important;
+}
+
+::ng-deep .mat-radio-outer-circle {
+    height: 18px !important;
+    width: 18px !important;
+}
+
+::ng-deep .mat-radio-inner-circle {
+    left: -1px !important;
+    top: -1px !important;
+}
+::ng-deep body.light .mat-radio-button.mat-accent .mat-radio-inner-circle{
+    background: #007859 !important;
+}
+::ng-deep body.light .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle, body .light .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+    border-color: #007859 !important;
+}
+
+::ng-deep .mat-form-field.mat-form-field-appearance-fill .mat-form-field-wrapper .mat-form-field-flex .mat-form-field-infix textarea.mat-input-element {
+    padding: 15px;
+    margin: 3px !important;
+}

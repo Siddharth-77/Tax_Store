@@ -1,0 +1,224 @@
+<div class="tors-users w-full bg-green-100">
+    <div class="tors-users-inner bg-white m-5 pt-[25px] px-6 pb-3">
+        <div class="tors-users-head-buttons w-full flex items-center justify-between ">
+            <div class="tors-users-head">
+                <div class="tors-head flex items-center gap-2">
+                    <h2 class="text-[24px] font-extrabold text-neutral-900 leading-8">GST Cases</h2>
+                    <p class="bg-green-700 w-9 text-[13px]  rounded px-3 text-white font-medium">{{pageLength}}</p>
+                </div>
+                <div class="tors-head-para mt-1">
+                    <p class="text-base font-normal text-neutral-500 leading-6">List of GST Cases</p>
+                </div>
+            </div>
+            <div class="tors-users-buttons">
+                <div class="tors-users-buttons-2">
+                    <button (click)="gstAdd()" class="flex items-center justify-center gap-2 bg-green-800 text-[14px] font-semibold text-white px-4 py-2  rounded">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                            <path d="M8 3.33337V12.6667" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M3.33337 8H12.6667" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <p>Add New</p>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="tors-users-table-filter mt-4">
+            <div class="tors-users-table-filterr flex items-center justify-between bg-green-50 p-3 rounded">
+                <div class="tors-users-search w-[425px]">
+                    <mat-form-field class="fuse-mat-no-subscript w-full">
+                        <mat-icon class="w-[21px] min-w-[21px]"
+                            matPrefix
+                            [svgIcon]="'heroicons_outline:search'"></mat-icon>
+                        <input matInput (keyup)="search($event.target.value)" [placeholder]="'Search by name, email, leader... '">
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="tors-users-table mt-1">
+                <div class="mat-elevation-z8 shadow-none">
+                    <table class="w-full" mat-table [dataSource]="dataSource">
+
+                        <!-- <ng-container matColumnDef="checkbox">
+                            <th mat-header-cell *matHeaderCellDef> 
+                                <mat-checkbox></mat-checkbox>
+                            </th>
+                            <td mat-cell *matCellDef="let element">
+                                <mat-checkbox></mat-checkbox> 
+                            </td>
+                          </ng-container> -->
+
+                        <ng-container matColumnDef="id">
+                            <th mat-header-cell *matHeaderCellDef> 
+                                <div class="tab flex items-center gap-2">
+                                    <h3 class="text-[12px] text-[#64748b] font-bold">ID.</h3>
+                                    <!-- <mat-icon class="w-[21px] min-w-[21px]" svgIcon="heroicons_solid:sort-descending"></mat-icon> -->
+                                </div>
+                            </th>
+                            <td mat-cell *matCellDef="let element">
+                                <div class="font-normal text-[14px] text-neutral-800">
+                                    {{element.gstNo}}
+                                </div>
+                            </td>
+                          </ng-container>
+                  
+                      <!-- Position Column -->
+                      <ng-container matColumnDef="username">
+                        <th mat-header-cell *matHeaderCellDef> 
+                            <div class="tab flex items-center gap-2">
+                                <h3 class="text-[12px] text-[#64748b] font-bold">NAME</h3>
+                                <!-- <mat-icon class="w-[21px] min-w-[21px]" svgIcon="heroicons_solid:sort-descending"></mat-icon> -->
+                            </div>
+                        </th>
+                        <td mat-cell *matCellDef="let element">
+                            <div class="cursor-pointer font-normal text-[14px] text-neutral-800">
+                                {{element.firstName}}
+                            </div>
+                        </td>
+                      </ng-container>
+                  
+                      <!-- Name Column -->
+                      <ng-container matColumnDef="firstname">
+                        <th mat-header-cell *matHeaderCellDef> 
+                            <div class="tab flex items-center gap-2">
+                                <h3 class="text-[12px] text-[#64748b] font-bold">EMAIL</h3>
+                            </div>
+                        </th>
+                        <td mat-cell *matCellDef="let element">
+                            <div class="font-normal text-[14px] text-neutral-800">                                
+                                {{element.email}}
+                            </div>
+                        </td>
+                      </ng-container>
+                  
+                      <!-- Weight Column -->
+                      <ng-container matColumnDef="lastname">
+                        <th mat-header-cell *matHeaderCellDef>
+                            <div class="tab flex items-center gap-2">
+                                <h3 class="text-[12px] text-[#64748b] font-bold">MOBILE</h3>
+                            </div>
+                        </th>
+                        <td mat-cell *matCellDef="let element">
+                            <div class="font-normal text-[14px] text-neutral-800">
+                                {{element.phoneNumber}}
+                            </div>
+                        </td>
+                      </ng-container>
+                  
+                      <!-- Symbol Column -->
+                      <ng-container matColumnDef="email">
+                        <th mat-header-cell *matHeaderCellDef>
+                            <div class="tab flex items-center gap-2">
+                                <h3 class="text-[12px] text-[#64748b] font-bold">TFN</h3>
+                            </div>
+                        </th>
+                        <td mat-cell *matCellDef="let element">
+                            <div class="font-semibold text-[12px] w-fit text-green-900 bg-green-100 px-[10px] py-[2px]">
+                                {{element.tfn}}
+                            </div>
+                        </td>
+                      </ng-container>
+
+                      <ng-container matColumnDef="mobilenumber">
+                        <th mat-header-cell *matHeaderCellDef>
+                            <div class="tab">
+                                <h3 class="text-[12px] text-[#64748b] font-bold">FLAG</h3>                            
+                            </div>
+                        </th>
+                        <td mat-cell *matCellDef="let element">
+                            <div class="font-normal text-[14px] text-neutral-800">
+                                {{element.flag}}
+                            </div>
+                        </td>
+                      </ng-container>
+
+                      <ng-container matColumnDef="role">
+                        <th mat-header-cell *matHeaderCellDef>
+                            <div class="tab flex items-center gap-2">
+                                <h3 class="text-[12px] text-[#64748b] font-bold">PAID AT</h3>
+                            </div>
+                        </th>
+                        <td mat-cell *matCellDef="let element">
+                            <div class="font-normal text-[14px] text-neutral-800">
+                                {{element.paidat}}
+                            </div>
+                        </td>
+                      </ng-container>
+
+                      <ng-container matColumnDef="hourlyreport">
+                        <th mat-header-cell *matHeaderCellDef>
+                            <div class="tab flex items-center gap-2">
+                                <h3 class="text-[12px] text-[#64748b] font-bold">PAID VIA</h3>
+                     
+                            </div>
+                        </th>
+                        <td mat-cell *matCellDef="let element">
+                            <div class="font-semibold text-[14px] text-neutral-800">
+                                {{element.paidvia}}
+                            </div>
+                        </td>
+                      </ng-container>
+
+                      <ng-container matColumnDef="flag">
+                        <th mat-header-cell *matHeaderCellDef>
+                            <div class="tab flex items-center gap-2">
+                                <h3 class="text-[12px] text-[#64748b] font-bold">TYPE</h3>
+                     
+                            </div>
+                        </th>
+                        <td mat-cell *matCellDef="let element">
+                            <div class="font-semibold text-[14px] text-neutral-800">
+                                {{element.clientType}}
+                            </div>
+                        </td>
+                      </ng-container>
+
+                      <ng-container matColumnDef="create">
+                        <th mat-header-cell *matHeaderCellDef>
+                            <div class="tab flex items-center gap-2">
+                                <h3 class="text-[12px] text-[#64748b] font-bold">CREATED AT</h3>                     
+                            </div>
+                        </th>
+                        <td mat-cell *matCellDef="let element">
+                            <div class="font-semibold text-[14px] text-neutral-800">
+                                {{element.createdAt | date : format : "MMM d, y" }}
+                            </div>
+                        </td>
+                      </ng-container>
+                      
+
+                      <ng-container matColumnDef="action">
+                        <th mat-header-cell *matHeaderCellDef>
+                            <div class="tab flex items-center gap-2">
+                                <h3 class="text-[12px] text-[#64748b] font-bold">STATUS</h3>                               
+                            </div>
+                        </th>
+                        <td mat-cell *matCellDef="let element">
+                            <div class="action-buttons flex items-center gap-3">
+                                <div class="font-semibold text-[12px] w-fit text-[#5bbbf0] bg-[#5bbbf040] px-[10px] py-[2px] rounded">
+                                    {{element.status | uppercase}}
+                                </div>
+                            </div>
+                        </td>
+                      </ng-container>
+                  
+                      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                      <tr class="mat-row" *matNoDataRow>
+                        <td class="mat-cell" [attr.colspan]="displayedColumns.length">
+                          No data matching the filter.
+                        </td>
+                      </tr>
+                      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                    </table>
+                  
+                    <mat-paginator 
+                    [pageSizeOptions]="[5, 10, 20]"
+                    [length]="pageLength"
+                    [pageSize]="pageSize"
+                    [pageIndex]="pageNumber-1"
+                    (page)="getGstData()">
+                    </mat-paginator>
+                </div>
+                  
+            </div>
+        </div>
+    </div>
+</div>

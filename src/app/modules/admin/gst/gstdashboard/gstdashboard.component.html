@@ -1,0 +1,270 @@
+<div class="dashboard bg-green-100 w-full">
+    <div class="dashboard-innner m-5">
+        <div class="dashboard-head bg-white rounded-[5px] green-shadow flex items-center justify-between px-5 py-2">
+            <div class="dashboard-sum">
+                <h1 class="text-xl font-extrabold text-[#191D23]">Summary</h1>
+            </div>
+            <div class="dashboard-follow flex items-center gap-4">
+                <div class="date-picker">
+                    <mat-form-field class="w-[240px]">
+                        <mat-date-range-input [rangePicker]="picker">
+                          <input matStartDate placeholder="Start date">
+                          <input matEndDate placeholder="End date">
+                        </mat-date-range-input>
+                        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-date-range-picker #picker></mat-date-range-picker>
+                    </mat-form-field>
+                </div>
+                <div class="top-buttons flex gap-3">
+                    <button class="bg-[#047857] text-[13px] font-semibold rounded py-2 px-4 text-white">Submit</button>
+                    <button class="bg-[#F2C94C] text-[13px] font-semibold rounded py-2 px-5">Today</button>
+                </div>
+                <!-- <div class="date-range flex gap-2">
+                    <div class="date-label text-[14px] font-semibold">
+                        <p>Date Range:</p>
+                    </div>
+                    <div class="date">
+                        <p><span>16/09/2023 </span>to <span>16/09/2023</span></p>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+        <div class="dashboard-body mt-5 h-full flex flex-wrap gap-5">
+            <div class="block-1 bg-white w-[296px] rounded-xl">
+                <div class="block-1-top py-3 px-5 bg-[#5BBBF0] rounded-xl flex items-center justify-between">
+                    <h1 class="text-lg font-bold text-white">1 - Pending</h1>
+                    <p class="w-[31px] h-[31px] flex items-center justify-center rounded-full text-[#5BBBF0] bg-white">0</p>
+                </div>
+                <!-- <div class="block-1-body flex flex-col gap-4 text-[15px] font-medium text-[#191d23] p-5">
+                    <div class="one">
+                        <p>Action Required</p>
+                    </div>
+                    <div class="one">
+                        <p>Did Not Answered</p>
+                    </div>
+                    <div class="one">
+                        <p>Waiting For Call Back</p>
+                    </div>
+                    <div class="one">
+                        <p>Invalid Mobile</p>
+                    </div>
+                    <div class="one">
+                        <p>Waiting On Client</p>
+                    </div>
+                    <div class="one">
+                        <p>On Hold</p>
+                    </div>
+                </div> -->
+            </div>
+            <div class="block-1 bg-white w-[296px] rounded-xl">
+                <div class="block-1-top py-3 px-5 bg-[#FFBB63] rounded-xl flex items-center justify-between">
+                    <h1 class="text-lg font-bold text-white">2 - Waiting For Approval</h1>
+                    <p class="w-[31px] h-[31px] flex items-center justify-center rounded-full text-[#FFBB63] bg-white">1</p>
+                </div>
+                <!-- <div class="block-1-body flex flex-col gap-4 text-[15px] font-medium text-[#191d23] p-5">
+                    <div class="one flex items-center justify-between">
+                        <p>Action Required</p>
+                        <p class="text-[#64CCC5]">(1)</p>
+                    </div>
+                </div> -->
+            </div>
+            <div class="block-1 bg-white w-[296px] rounded-xl">
+                <div class="block-1-top py-3 px-5 bg-[#64CCC5] rounded-xl flex items-center justify-between">
+                    <h1 class="text-lg font-bold text-white">3 - Approved</h1>
+                    <p class="w-[31px] h-[31px] flex items-center justify-center rounded-full text-[#64CCC5] bg-white">2</p>
+                </div>
+                <!-- <div class="block-1-body flex flex-col gap-4 text-[15px] font-medium text-[#191d23] p-5">
+                    <div class="one">
+                        <p>Action Required</p>
+                    </div>
+                    <div class="one">
+                        <p>Estimate Sent</p>
+                    </div>
+                    <div class="one">
+                        <p>Change FFR to TROS</p>
+                    </div>
+                    <div class="one">
+                        <p>Change TROS to FFR</p>
+                    </div>
+                    <div class="one">
+                        <p>Need More Refund</p>
+                    </div>
+                    <div class="one flex items-center justify-between">
+                        <p>Need Less Fee</p>
+                        <p class="text-[#FFBB63]">(1)</p>
+                    </div>
+                    <div class="one">
+                        <p>Need More TROS Amount</p>
+                    </div>
+                    <div class="one">
+                        <p>Client Requested Changes</p>
+                    </div>
+                    <div class="one">
+                        <p>File On Hold</p>
+                    </div>
+                </div> -->
+            </div>
+            <div class="block-1 bg-white w-[296px] rounded-xl">
+                <div class="block-1-top py-3 px-5 bg-[#D988B9] rounded-xl flex items-center justify-between">
+                    <h1 class="text-lg font-bold text-white">4 - Lodgement</h1>
+                    <p class="w-[31px] h-[31px] flex items-center justify-center rounded-full text-[#D988B9] bg-white">2</p>
+                </div>
+                <!-- <div class="block-1-body flex flex-col gap-4 text-[15px] font-medium text-[#191d23] p-5">
+                    <div class="one">
+                        <p>Team Member Calling</p>
+                    </div>
+                    <div class="one flex items-center justify-between">
+                        <p>With Caller Team</p>
+                        <p class="text-[#D988B9]">(2)</p>
+                    </div>
+                    <div class="one">
+                        <p>Call Scheduled</p>
+                    </div>
+                    <div class="one">
+                        <p>Email Or Mobile Need Changes</p>
+                    </div>
+                    <div class="one">
+                        <p>Client can’t  Be Reached </p>
+                    </div>
+                    <div class="one">
+                        <p>ID & Bank Details Both</p>
+                    </div>
+                    <div class="one">
+                        <p>ID Only</p>
+                    </div>
+                    <div class="one">
+                        <p>Bank Details Only</p>
+                    </div>
+                </div> -->
+            </div>
+            <div class="block-1 bg-white w-[296px] rounded-xl">
+                <div class="block-1-top py-3 px-5 bg-[#99B080] rounded-xl flex items-center justify-between">
+                    <h1 class="text-lg font-bold text-white">5 - Completed</h1>
+                    <p class="w-[31px] h-[31px] flex items-center justify-center rounded-full text-[#99B080] bg-white">5</p>
+                </div>
+                <!-- <div class="block-1-body flex flex-col gap-4 text-[15px] font-medium text-[#191d23] p-5">
+                    <div class="one flex items-center justify-between">
+                        <p>Action Required </p>
+                        <p class="text-[#FF8686]">(2)</p>
+                    </div>
+                    <div class="one flex items-center justify-between">
+                        <p>Coin Failed</p>
+                        <p class="text-[#FF8686]">(2)</p>
+                    </div>
+                    <div class="one flex items-center justify-between">
+                        <p>Fee Not Received</p>
+                        <p class="text-[#FF8686]">(2)</p>
+                    </div>
+                    <div class="one">
+                        <p>Coin Need To Be Deposited</p>
+                    </div>
+                </div> -->
+            </div>
+            <div class="block-1 bg-white w-[296px] rounded-xl">
+                <div class="block-1-top py-3 px-5 bg-[#FF8686] rounded-xl flex items-center justify-between">
+                    <h1 class="text-lg font-bold text-white">6 - Rejected</h1>
+                    <p class="w-[31px] h-[31px] flex items-center justify-center rounded-full text-[#FF8686] bg-white">5</p>
+                </div>
+                <!-- <div class="block-1-body flex flex-col gap-4 text-[15px] font-medium text-[#191d23] p-5">
+                    <div class="one">
+                        <p>Action Required</p>
+                    </div>
+                    <div class="one flex items-center justify-between">
+                        <p>Waiting On Error To Be Fixed</p>
+                        <p class="text-[#BFB29E]">(7)</p>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+    </div>
+    <!-- <owl-carousel-o [options]="customOptions2">
+        <ng-template carouselSlide>
+            <div class="portfolio-two-card">
+                <img src="../../assets/images/portfolio/portfolio-two-img-1.webp" alt="images">
+                <div class="portfolio-two-content">
+                    <a href="portfolio.html">
+                        <h3>Chocolate Coffee</h3>
+                    </a>
+                    <p>Coffee</p>
+                </div>
+            </div>
+        </ng-template>
+        <ng-template carouselSlide>
+            <div class="portfolio-two-card">
+                <img src="../../assets/images/portfolio/portfolio-two-img-2.webp" alt="images">
+                <div class="portfolio-two-content">
+                    <a href="portfolio.html">
+                        <h3>Chocolate Coffee</h3>
+                    </a>
+                    <p>Coffee</p>
+                </div>
+            </div>
+        </ng-template>
+        <ng-template carouselSlide>
+            <div class="portfolio-two-card">
+                <img src="../../assets/images/portfolio/portfolio-two-img-3.webp" alt="images">
+                <div class="portfolio-two-content">
+                    <a href="portfolio.html">
+                        <h3>Chocolate Coffee</h3>
+                    </a>
+                    <p>Coffee</p>
+                </div>
+            </div>
+        </ng-template>
+        <ng-template carouselSlide>
+            <div class="portfolio-two-card">
+                <img src="../../assets/images/portfolio/portfolio-two-img-4.webp" alt="images">
+                <div class="portfolio-two-content">
+                    <a href="portfolio.html">
+                        <h3>Chocolate Coffee</h3>
+                    </a>
+                    <p>Coffee</p>
+                </div>
+            </div>
+        </ng-template>
+        <ng-template carouselSlide>
+            <div class="portfolio-two-card">
+                <img src="../../assets/images/portfolio/portfolio-two-img-1.webp" alt="images">
+                <div class="portfolio-two-content">
+                    <a href="portfolio.html">
+                        <h3>Chocolate Coffee</h3>
+                    </a>
+                    <p>Coffee</p>
+                </div>
+            </div>
+        </ng-template>
+        <ng-template carouselSlide>
+            <div class="portfolio-two-card">
+                <img src="../../assets/images/portfolio/portfolio-two-img-2.webp" alt="images">
+                <div class="portfolio-two-content">
+                    <a href="portfolio.html">
+                        <h3>Chocolate Coffee</h3>
+                    </a>
+                    <p>Coffee</p>
+                </div>
+            </div>
+        </ng-template>
+        <ng-template carouselSlide>
+            <div class="portfolio-two-card">
+                <img src="../../assets/images/portfolio/portfolio-two-img-3.webp" alt="images">
+                <div class="portfolio-two-content">
+                    <a href="portfolio.html">
+                        <h3>Chocolate Coffee</h3>
+                    </a>
+                    <p>Coffee</p>
+                </div>
+            </div>
+        </ng-template>
+        <ng-template carouselSlide>
+            <div class="portfolio-two-card">
+                <img src="../../assets/images/portfolio/portfolio-two-img-4.webp" alt="images">
+                <div class="portfolio-two-content">
+                    <a href="portfolio.html">
+                        <h3>Chocolate Coffee</h3>
+                    </a>
+                    <p>Coffee</p>
+                </div>
+            </div>
+        </ng-template>
+    </owl-carousel-o> -->
+</div>

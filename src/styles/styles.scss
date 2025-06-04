@@ -1,0 +1,189 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap');
+@import "~ngx-spinner/animations/ball-fussion.css";
+@import "~@ng-select/ng-select/themes/default.theme.css";
+body, .theme-default {
+    --fuse-primary-rgb: 4,120, 87 !important;
+    --tw-border-opacity: 1 !important;
+}
+html, .mat-table, h1, h2, h3, h4, h5, h6, body{
+    font-family: 'Manrope', sans-serif !important;
+}
+::ng-deep h1, h2, h3, h4, h5, h6, p, label, span, input, button, div, .mat-tab-label, .mat-tab-link {
+    font-family: 'Manrope',sans-serif!important;
+}
+::ng-deep th.mat-header-cell:first-of-type, td.mat-cell:first-of-type, td.mat-footer-cell:first-of-type {
+  padding-left: 0px !important;
+}
+::ng-deep th.mat-header-cell:last-of-type, td.mat-cell:last-of-type, td.mat-footer-cell:last-of-type {
+    padding-right: 0px !important;
+}
+::ng-deep .mat-checkbox-checked.mat-accent .mat-checkbox-background,.mat-checkbox-indeterminate.mat-accent .mat-checkbox-background {
+    background-color: #047857 !important;
+}
+
+.fuse-vertical-navigation-item-expanded
+    .fuse-vertical-navigation-item-wrapper
+    .fuse-vertical-navigation-item,
+fuse-vertical-navigation-basic-item
+    > .fuse-vertical-navigation-item-wrapper
+    .fuse-vertical-navigation-item:not(
+        .fuse-vertical-navigation-item-disabled
+    ).fuse-vertical-navigation-item-active {
+    background-color: #e5f4f0;
+    color: #047857 !important;
+}
+.fuse-vertical-navigation-item-expanded
+    .fuse-vertical-navigation-item-wrapper
+    .fuse-vertical-navigation-item:hover {
+    background-color: #e5f4f0 !important;
+}
+.fuse-vertical-navigation-item-expanded
+    .fuse-vertical-navigation-item-children
+    .fuse-vertical-navigation-item {
+    background: none !important;
+    color: #191d23 !important;
+}
+.fuse-vertical-navigation-item-expanded
+    .fuse-vertical-navigation-item-children
+    .fuse-vertical-navigation-item:hover {
+    background: none !important;
+}
+.fuse-vertical-navigation-item-expanded
+    .fuse-vertical-navigation-item-children
+    .fuse-vertical-navigation-item-active {
+    color: #047857 !important;
+    font-weight: 700 !important;
+}
+
+fuse-vertical-navigation fuse-vertical-navigation-aside-item .fuse-vertical-navigation-item-wrapper .fuse-vertical-navigation-item, fuse-vertical-navigation fuse-vertical-navigation-basic-item .fuse-vertical-navigation-item-wrapper .fuse-vertical-navigation-item, fuse-vertical-navigation fuse-vertical-navigation-collapsable-item .fuse-vertical-navigation-item-wrapper .fuse-vertical-navigation-item, fuse-vertical-navigation fuse-vertical-navigation-divider-item .fuse-vertical-navigation-item-wrapper .fuse-vertical-navigation-item, fuse-vertical-navigation fuse-vertical-navigation-group-item .fuse-vertical-navigation-item-wrapper .fuse-vertical-navigation-item, fuse-vertical-navigation fuse-vertical-navigation-spacer-item .fuse-vertical-navigation-item-wrapper .fuse-vertical-navigation-item {
+
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    color: #191D23 !important;
+
+}
+
+fuse-vertical-navigation-aside-item .fuse-vertical-navigation-item-wrapper .fuse-vertical-navigation-item .fuse-vertical-navigation-item-title-wrapper .fuse-vertical-navigation-item-title, fuse-vertical-navigation-basic-item .fuse-vertical-navigation-item-wrapper .fuse-vertical-navigation-item .fuse-vertical-navigation-item-title-wrapper .fuse-vertical-navigation-item-title, fuse-vertical-navigation-collapsable-item .fuse-vertical-navigation-item-wrapper .fuse-vertical-navigation-item .fuse-vertical-navigation-item-title-wrapper .fuse-vertical-navigation-item-title, fuse-vertical-navigation-group-item .fuse-vertical-navigation-item-wrapper .fuse-vertical-navigation-item .fuse-vertical-navigation-item-title-wrapper .fuse-vertical-navigation-item-title {
+    opacity: 1 !important;
+}
+
+fuse-vertical-navigation-aside-item .fuse-vertical-navigation-item-wrapper .fuse-vertical-navigation-item .fuse-vertical-navigation-item-icon, fuse-vertical-navigation-basic-item .fuse-vertical-navigation-item-wrapper .fuse-vertical-navigation-item .fuse-vertical-navigation-item-icon, fuse-vertical-navigation-collapsable-item .fuse-vertical-navigation-item-wrapper .fuse-vertical-navigation-item .fuse-vertical-navigation-item-icon, fuse-vertical-navigation-group-item .fuse-vertical-navigation-item-wrapper .fuse-vertical-navigation-item .fuse-vertical-navigation-item-icon {
+
+    opacity: 1 !important;
+}
+fuse-vertical-navigation-collapsable-item {
+    margin-bottom: 10px !important;
+}
+
+
+.otp-input{
+    width: 41px !important;
+    height: 41px !important;
+    font-size: 25px !important;
+}
+
+a.mat-tooltip-trigger.fuse-vertical-navigation-item.ng-star-inserted.fuse-vertical-navigation-item-active{
+    background: #e4f4f0 !important;
+}
+.fuse-vertical-navigation-item-children a.mat-tooltip-trigger.fuse-vertical-navigation-item.ng-star-inserted.fuse-vertical-navigation-item-active{
+    background: none !important;
+}
+
+.fuse-vertical-navigation-item-children {
+    position: relative !important;
+}
+.fuse-vertical-navigation-item-children:before {
+    position: absolute !important;
+    content: '' !important;
+    width: 1px;
+    background: #d0d5dd;
+    height: 77%;
+    left: 40px;
+    top: 20px;
+}
+::ng-deep fuse-vertical-navigation fuse-vertical-navigation-collapsable-item .fuse-vertical-navigation-item-children {
+    overflow: hidden !important;
+}
+
+.ng-select .ng-select-container {
+    border-color: rgb(203 213 225) !important ;
+    border-radius: 5px !important;
+    min-height: 42px !important;
+    box-shadow: none !important;
+}
+.ng-select .ng-select-container:focus {
+    border: 1px solid #047857 !important;
+}
+.ng-select .ng-select-container .ng-value-container {
+    padding-left: 16px !important;
+    font-family: "Manrope", sans-serif !important;
+}
+.ng-select.ng-select-single .ng-select-container .ng-value-container .ng-input {
+    top: 10px !important;
+    padding-left: 16px !important;
+}
+.ng-select.ng-select-multiple
+    .ng-select-container
+    .ng-value-container
+    .ng-placeholder {
+    top: 10px !important;
+}
+.ng-select .ng-select-container .ng-value-container .ng-placeholder {
+    color: #64748b !important;
+}
+.ng-select .ng-clear-wrapper {
+    display: none !important;
+}
+.ng-select.ng-select-single .ng-select-container .ng-value-container,
+.ng-select.ng-select-single .ng-select-container .ng-value-container .ng-value {
+    color: #191d23 !important;
+}
+.ng-dropdown-panel .ng-dropdown-panel-items .ng-option.ng-option-selected,
+.ng-dropdown-panel
+    .ng-dropdown-panel-items
+    .ng-option.ng-option-selected.ng-option-marked {
+    background-color: #e5f4f0 !important;
+    color: #047857 !important;
+}
+.ng-dropdown-panel .ng-dropdown-panel-items .ng-option {
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    color: #191d23 !important;
+}
+
+.ng-select.ng-select-multiple
+    .ng-select-container
+    .ng-value-container
+    .ng-value,
+.ng-dropdown-panel .ng-dropdown-panel-items .ng-option.ng-option-marked {
+    background-color: #e5f4f0 !important;
+    color: #047857 !important;
+    font-weight: 500;
+}
+.ng-select.ng-select-multiple
+    .ng-select-container
+    .ng-value-container
+    .ng-value
+    .ng-value-icon:hover {
+    background-color: #e5f4f0 !important;
+}
+
+.ng-select.ng-select-focused:not(.ng-select-opend) > .ng-select-container {
+    border-color: #047857 !important;
+}
+.mat-tab-label,
+.mat-tab-link {
+    font-family: "Manrope", sans-serif !important;
+}
+
+tr.mat-row.cdk-row.ng-star-inserted{
+    transition-duration: 0.6s;
+}
+tr.mat-row.cdk-row.ng-star-inserted:hover {
+    background: #d9fce8;
+}
+
+.tors-users-search .mat-form-field.mat-form-field-appearance-fill .mat-form-field-wrapper .mat-form-field-flex .mat-input-element {
+    padding: 8px 0!important;
+    font-size: 13px;
+}

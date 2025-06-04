@@ -1,0 +1,233 @@
+<div class="ato-dialog scrollable-content w-[680px] p-8">
+    <div class="ato-dialog-inner">
+        <div class="ato-dialog-header">
+                <div class="ato-dialog-head-icon flex items-center justify-between">
+                    <div class="info flex items-center gap-2">
+                        <h1 class="text-[#191D23] text-lg font-semibold">Interview:</h1>
+                        <h1 class="text-[#FC5B27] text-lg font-semibold">Joshua Carroll </h1>
+                        <h1 class="text-[#047857] text-[14px] font-semibold">(TFN : 838759184)</h1>
+                    </div>
+                    <div class="lodo border border-[#E7EAEE] bg-green-50 p-1" (click)="interviewDialogClose()">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                            <path d="M12 4L4 12" stroke="#191D23" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M4 4L12 12" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                </div>
+                <div class="border mt-4 border-[#d9d9d9]"></div>
+                <div class="ato-input-data mt-5 ">
+                    <form action="" [formGroup]="interviewForm">
+                        <div class="phonenumber w-full flex justify-between">
+                            <div class="firt-nam w-[48%]">
+                                <mat-form-field class="w-full">
+                                    <!-- <mat-label class="text-[#191D23] text-[13px] font-medium">TFN</mat-label> -->
+                                    <input
+                                        id="phone"                                            
+                                        maxlength="10"
+                                        matInput
+                                        placeholder="Enter Occupation"
+                                        [formControlName]="'occupation'">
+                                    <mat-error *ngIf="interviewForm.get('occupation').hasError('required')">
+                                        Feild  is required
+                                    </mat-error>
+                                </mat-form-field>
+                            </div>
+                            <div class="firt-nam w-[48%]">
+                                <mat-form-field class="w-full">
+                                    <!-- <mat-label class="text-[#191D23] text-[13px] font-medium">TFN</mat-label> -->
+                                    <input
+                                        id="phone"                                            
+                                        maxlength="10"
+                                        matInput
+                                        placeholder="No of Kid's"
+                                        [formControlName]="'kids'">
+                                    <mat-error *ngIf="interviewForm.get('kids').hasError('required')">
+                                        Feild  is required
+                                    </mat-error>
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="work-expencoe">
+                            <div class="work-label-radio">
+                                <div class="work-label">
+                                    <p class="text-[#191D23] text-[14px] font-semibold">Any Work Related Expenses ?</p>
+                                </div>
+                                <div class="work-radioo mt-3">
+                                    <mat-radio-group formControlName="related">
+                                        <mat-radio-button (change)="radioChange()" class="mr-3">Yes</mat-radio-button>
+                                        <mat-radio-button (change)="radioChanges()">No</mat-radio-button>
+                                    </mat-radio-group>
+                                </div>
+                                <div class="phonenumber w-full flex flex-wrap justify-between mt-4" *ngIf="appear">
+                                    <div class="firt-nam w-[48%]">
+                                        <mat-form-field class="w-full">
+                                            <!-- <mat-label class="text-[#191D23] text-[13px] font-medium">TFN</mat-label> -->
+                                            <input
+                                                id="phone"                                            
+                                                maxlength="10"
+                                                matInput
+                                                placeholder="D1:Car Expense Amount "
+                                                [formControlName]="'put1'">
+                                            <mat-error *ngIf="interviewForm.get('put1').hasError('required')">
+                                                Feild  is required
+                                            </mat-error>
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="firt-nam w-[48%]">
+                                        <mat-form-field class="w-full">
+                                            <!-- <mat-label class="text-[#191D23] text-[13px] font-medium">TFN</mat-label> -->
+                                            <input
+                                                id="phone"                                            
+                                                maxlength="10"
+                                                matInput
+                                                placeholder="D3: Work Relate Clothing Exp."
+                                                [formControlName]="'put2'">
+                                            <mat-error *ngIf="interviewForm.get('put2').hasError('required')">
+                                                Feild  is required
+                                            </mat-error>
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="firt-nam w-[32%]">
+                                        <mat-form-field class="w-full">
+                                            <!-- <mat-label class="text-[#191D23] text-[13px] font-medium">TFN</mat-label> -->
+                                            <input
+                                                id="phone"                                            
+                                                maxlength="10"
+                                                matInput
+                                                placeholder="D5:Other Work Relate Exp."
+                                                [formControlName]="'put3'">
+                                            <mat-error *ngIf="interviewForm.get('put3').hasError('required')">
+                                                Feild  is required
+                                            </mat-error>
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="firt-nam w-[32%]">
+                                        <mat-form-field class="w-full">
+                                            <!-- <mat-label class="text-[#191D23] text-[13px] font-medium">TFN</mat-label> -->
+                                            <input
+                                                id="phone"                                            
+                                                maxlength="10"
+                                                matInput
+                                                placeholder="D9: Donations"
+                                                [formControlName]="'put4'">
+                                            <mat-error *ngIf="interviewForm.get('put4').hasError('required')">
+                                                Feild  is required
+                                            </mat-error>
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="firt-nam w-[32%]">
+                                        <mat-form-field class="w-full">
+                                            <!-- <mat-label class="text-[#191D23] text-[13px] font-medium">TFN</mat-label> -->
+                                            <input
+                                                id="phone"                                            
+                                                maxlength="10"
+                                                matInput
+                                                placeholder="D10: Last Year Tax Agent fee"
+                                                [formControlName]="'put5'">
+                                            <mat-error *ngIf="interviewForm.get('put5').hasError('required')">
+                                                Feild  is required
+                                            </mat-error>
+                                        </mat-form-field>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="work-expejnce mt-3">
+                            <div class="work-label-radjio">
+                                <div class="work-lajbel">
+                                    <p class="text-[#191D23] text-[14px] font-semibold">Is Income more than 90k and there is no Health Insurance in Portal?</p>
+                                </div>
+                                <div class="work-radijo mt-3">
+                                    <mat-radio-group formControlName="relatedNo">
+                                        <mat-radio-button (change)="radioChange2()" class="mr-3">Yes</mat-radio-button>
+                                        <mat-radio-button (change)="radioChanges2()">No</mat-radio-button>
+                                    </mat-radio-group>
+                                </div>
+                                <div class="phonenumber w-full flex flex-wrap justify-between mt-4" *ngIf="appear2">
+                                    <div class="firt-nam w-[32%]">
+                                        <mat-form-field class="w-full">
+                                            <!-- <mat-label class="text-[#191D23] text-[13px] font-medium">TFN</mat-label> -->
+                                            <input
+                                                id="phone"                                            
+                                                maxlength="10"
+                                                matInput
+                                                placeholder="D5:Other Work Relate Exp."
+                                                [formControlName]="'put3'">
+                                            <mat-error *ngIf="interviewForm.get('put3').hasError('required')">
+                                                Feild  is required
+                                            </mat-error>
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="firt-nam w-[32%]">
+                                        <mat-form-field floatLabel="always" class="w-full">
+                                            <!-- <mat-label class="text-[#191D23] text-[13px] font-medium">Date Of Birth</mat-label> -->
+                                            <input matInput [matDatepicker]="picker" [formControlName]="'dob'" placeholder="MM/DD/YYYY">
+                                            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                                            <mat-datepicker #picker></mat-datepicker>                
+                                            <mat-error *ngIf="interviewForm.get('dob').hasError('required')">
+                                                DOB  is required
+                                            </mat-error>
+                                          </mat-form-field>
+                                    </div>
+                                    <div class="firt-nam w-[32%]">
+                                        <mat-form-field class="w-full">
+                                            <!-- <mat-label class="text-[#191D23] text-[13px] font-medium">TFN</mat-label> -->
+                                            <input
+                                                id="phone"                                            
+                                                maxlength="10"
+                                                matInput
+                                                placeholder="D10: Last Year Tax Agent fee"
+                                                [formControlName]="'put5'">
+                                            <mat-error *ngIf="interviewForm.get('put5').hasError('required')">
+                                                Feild  is required
+                                            </mat-error>
+                                        </mat-form-field>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="work-expkence mt-3">
+                            <div class="work-lakbel-radio">
+                                <div class="work-labuel">
+                                    <p class="text-[#191D23] text-[14px] font-semibold">Are you Australian citizen or permanent resident (PR)? *</p>
+                                </div>
+                                <div class="work-radyio mt-3">
+                                    <mat-radio-group formControlName="third">
+                                        <mat-radio-button class="mr-3">Yes</mat-radio-button>
+                                        <mat-radio-button >No</mat-radio-button>
+                                    </mat-radio-group>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="work-expuence mt-3">
+                            <div class="work-luabel-radio0">
+                                <div class="work-label">
+                                    <p class="text-[#191D23] text-[14px] font-semibold">Do you want refund in 7-10 working days OR you want refund in 1 hour?</p>
+                                </div>
+                                <div class="work-radkio mt-3">
+                                    <mat-radio-group formControlName="forth">
+                                        <mat-radio-button class="mr-3">TRS</mat-radio-button>
+                                        <mat-radio-button class="mr-3">FFR</mat-radio-button>
+                                        <mat-radio-button >PAID</mat-radio-button>
+                                    </mat-radio-group>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="conditons text-[#64748B] text-[13px] font-medium flex flex-col gap-2 mt-4">
+                            <p>Thanks for providing all your Information. I will pass this all information to the Accountant and Accountant will send you estimate shortly on your email and message.
+                            </p>
+                            <p>If you want to go ahead simply click on View and approve link, Upload Your, add your bank details, click on declaration boxes, and submit it.
+                            </p>
+                            <p>If cleint ask what fees and refund is simply say i am on reception it depends upon case to case and accountant will send you all the information on your email and mesage.</p>
+                            <p>If client ask what fees and refund is simply say i am on reception it depends upon case to case and accountant will send you all the information on your email and message.</p>
+                            <p>Changes will be reasonable, and accountant will maximize your refund</p>
+                        </div>
+                        <div class="byt mt-8">
+                            <button class="mr-3 text-white bg-[#047857] rounded py-[8px] px-[20px] text-[14px] font-semibold">Submit</button>
+                            <button (click)="interviewDialogClose()" class="bg-[#E7EAEE] rounded py-[8px] px-[20px] text-[14px] font-semibold">Cancel</button>
+                        </div>
+                    </form>
+                </div>
+        </div>
+    </div>
+</div>

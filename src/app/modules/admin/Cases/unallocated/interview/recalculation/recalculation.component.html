@@ -1,0 +1,41 @@
+<div class="recalculation w-[500px]">
+    <div class="recalculation-inner">
+        <div class="recalculation-header flex items-center justify-between px-5 pt-5">
+            <div class="recal-header text-lg font-semibold">
+                <h1>Recalculation</h1>
+            </div>
+            <div (click)="close()" class="recal-logo border-[#d9d9d9] border bg-green-50 p-1">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                    <path d="M12 4L4 12" stroke="#191D23" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M4 4L12 12" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+        </div>
+        <div class="border border-[#d9d9d9] mt-3"></div>
+        <div class="recalculation-dat-radiio p-6">
+            <form action="" [formGroup]="recalculation">
+                <mat-radio-group formControlName="recalcu">
+                    <div class="two-groups w-full flex justify-between text-[15px] font-medium">
+                        <div class="first w-[50%] flex flex-col gap-[10px]">
+                            <mat-radio-button>Action Required </mat-radio-button>
+                            <mat-radio-button>Estimate Sent</mat-radio-button>
+                            <mat-radio-button>Change FFR to TROS</mat-radio-button>
+                            <mat-radio-button>Change TROS to FFR</mat-radio-button>
+                            <mat-radio-button>Need More Refund</mat-radio-button> 
+                        </div> 
+                        <div class="second w-[50%] flex flex-col gap-[10px]">
+                            <mat-radio-button>Need Less Fee</mat-radio-button>
+                            <mat-radio-button>Need More TROS Amount</mat-radio-button>
+                            <mat-radio-button>Client Requested Changes</mat-radio-button>
+                            <mat-radio-button>File On Hold</mat-radio-button>
+                        </div>
+                    </div>
+                    <div class="tyur-buttons flex gap-3 mt-5">
+                        <button class="bg-green-800 text-[14px] text-white font-semibold rounded py-2 px-5">Save</button>
+                        <button (click)="close()" class="bg-[#E7EAEE] text-[14px] font-semibold rounded py-2 px-5">Cancel</button>
+                    </div>
+                </mat-radio-group>
+            </form>
+        </div>
+    </div>
+</div>

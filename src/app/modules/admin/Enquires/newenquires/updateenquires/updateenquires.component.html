@@ -1,0 +1,297 @@
+<div class="update-enquiry-form w-full bg-green-100">
+    <div class="update-enquiry-form-inner m-6 ">
+        <div class="update-forms w-[full] flex items-center gap-8">
+            <div class="update-form-left w-[50%] bg-white rounded-[6px] py-[20px]">
+                <div class="update-form-top-section w-full">
+                    <div class="update-form-top flex items-center justify-between px-[30px]">
+                        <div class="form-header">
+                            <h2 class="text-lg text-[#191D23] font-semibold">Edit Enquiry</h2>
+                        </div>
+                        <div class="update-form-top-button flex items-center gap-4">
+                            <div class="source flex items-center justify-center gap-1">
+                                <p class="text-[14px] font-medium text-[#191D23]">Source:</p><span class="text-green-700 text-[13px] font-semibold">{{updateData.source}}</span>
+                            </div>
+                            <div class="top-buton" [routerLink]="['/enquires/newenquires']">
+                                <button class="bg-[#F2C94C] rounded-[5px] flex items-center justify-center w-[91px] gap-1 py-[7px]">
+                                    <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <g clip-path="url(#clip0_603_7835)">
+                                        <path d="M7.89657 13.5657C11.1182 13.5657 13.7299 10.9541 13.7299 7.73241C13.7299 4.51075 11.1182 1.89908 7.89657 1.89908C4.6749 1.89908 2.06323 4.51075 2.06323 7.73241C2.06323 10.9541 4.6749 13.5657 7.89657 13.5657Z" stroke="#191D23" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M7.89657 5.39909L5.56323 7.73243L7.89657 10.0658" stroke="#191D23" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M10.2299 7.73242H5.56323" stroke="#191D23" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </g>
+                                        <defs>
+                                        <clipPath id="clip0_603_7835">
+                                        <rect width="14" height="14" fill="white" transform="translate(0.896484 0.732422)"/>
+                                        </clipPath>
+                                        </defs>
+                                    </svg> 
+                                    <p class="text-[13px] font-semibold ">Go Back</p>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="top-section-border w-full border border-[#d9d9d9] mt-[10px]"></div>
+                </div>
+                <div class="enquiry-form w-full px-[30px] py-[24px]">
+                    <form action="" [formGroup]="enquiryForm" (ngSubmit)="onSubmit()">
+                        <div class="first-row flex items-center justify-between">
+                            <div class="status-action w-[306px]">
+                                <div class="status flex items-center gap-1">
+                                    <p class="text-[#191D23] font-medium text-[14px]">Status:</p>
+                                    <p class="text-[#FF595A] font-semibold text-[14px]">{{updateData.status}}</p>
+                                </div>
+                                <div class="tors-system text-[12px] font-medium flex items-center gap-1">
+                                    <p class="text-[#191D23]">TROS System</p>
+                                    <p class="text-[#64748B]">(18/09/2023, 1:24 pm)</p>
+                                    <!-- <p class="text-[#64748B]">{{updateData.createdAt}}</p> -->
+                                    <p class="text-[#FC5B27]">(a minute ago)</p>
+                                </div>
+                            </div>
+                            <div class="remainder w-[306px] flex items-center justify-end gap-2 flex-wrap">
+                                <div class="text-buil w-[50%]">
+                                    <p class="text-[13px] font-medium text-[#191D23]">Disable Buil Reminder</p>
+                                </div>
+                                <div class="remainder-box flex items-center w-50% gap-4 ">
+                                    <div class="box-1 w-[50%]">
+                                        <mat-checkbox formControlName="disableEmail" class="text-[13px] font-medium text-[#64748B]">Email</mat-checkbox>
+                                    </div>
+                                    <div class="box-2 w-[50%]">
+                                        <mat-checkbox formControlName="disableSMS" class="text-[13px] font-medium text-[#64748B]">SMS</mat-checkbox>
+                                    </div>
+                                    
+                                </div>
+                                <!-- <div *ngIf="enquiryForm.invalid && enquiryForm.dirty" class="text-red-600">
+                                    <div *ngIf="enquiryForm.hasError('requireOneChecked')">Please check at least one checkbox.</div>
+                                </div> -->
+                            </div>
+                        </div>
+                        <div class="second-row-name w-full mt-5">
+                            <div class="firstname-feild w-full flex items-center justify-between">
+                                <div class="first-name w-[48%]">
+                                    <mat-form-field class="w-full">
+                                        <mat-label class="text-[#191D23] text-[13px] font-medium">First Name</mat-label>
+                                        <input 
+                                            id="firstname"
+                                            matInput
+                                            [formControlName]="'firstName'">
+                                        <mat-error *ngIf="enquiryForm.get('firstName').hasError('required')">
+                                            Firstname  is required
+                                        </mat-error>
+                                    </mat-form-field>
+                                </div>
+                                <div class="last-name w-[48%]">
+                                    <mat-form-field class="w-full">
+                                        <mat-label class="text-[#191D23] text-[13px] font-medium">Last Name</mat-label>
+                                        <input
+                                            id="lastname"
+                                            matInput
+                                            [formControlName]="'lastName'">
+                                        <mat-error *ngIf="enquiryForm.get('lastName').hasError('required')">
+                                            Lastname  is required
+                                        </mat-error>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="second-row-name w-full ">
+                            <div class="firstname-feild w-full flex items-center justify-between">
+                                <div class="update-email w-[48%]">
+                                    <mat-form-field class="w-full">
+                                        <mat-label>Email</mat-label>
+                                        <input
+                                            id="email"
+                                            matInput
+                                            [formControlName]="'email'">
+                                        <mat-error *ngIf="enquiryForm.get('email').hasError('required')">
+                                            Email address is required
+                                        </mat-error>
+                                        <mat-error *ngIf="enquiryForm.get('email').hasError('email')">
+                                            Please enter a valid email address
+                                        </mat-error>
+                                    </mat-form-field>
+                                </div> 
+                                <div class="update-email w-[48%]">
+                                    <mat-form-field class="w-full">
+                                        <mat-label>Secondary Email</mat-label>
+                                        <input
+                                            id="secondaryEmail"
+                                            matInput
+                                            [formControlName]="'secondaryEmail'">
+                                        <mat-error *ngIf="enquiryForm.get('secondaryEmail').hasError('required')">
+                                            Email address is required
+                                        </mat-error>
+                                        <mat-error *ngIf="enquiryForm.get('secondaryEmail').hasError('secondaryEmail')">
+                                            Please enter a valid email address
+                                        </mat-error>
+                                    </mat-form-field>
+                                </div> 
+                            </div>
+                        </div>
+                        <div class="phonenumber-tfn w-full flex items-center justify-between">
+                            <div class="phonenumber w-[48%] flex justify-between">
+                                <div class="firt-nam w-[48%]">
+                                    <mat-form-field class="w-full">
+                                        <mat-label class="text-[#191D23] text-[13px] font-medium">Mobile Number</mat-label>
+                                        <input
+                                            id="phone"                                            
+                                            maxlength="9"
+                                            matInput
+                                            [formControlName]="'phoneNumber'">
+                                        <mat-error *ngIf="enquiryForm.get('phoneNumber').hasError('required')">
+                                            Phone Number  is required
+                                        </mat-error>
+                                    </mat-form-field>
+                                </div>
+                                <div class="secondary-nam w-[48%]">
+                                    <mat-form-field class="w-full">
+                                        <mat-label class="text-[#191D23] text-[13px] font-medium">Secondary Mobile  </mat-label>
+                                        <input
+                                            id="phone"                                            
+                                            maxlength="9"
+                                            matInput
+                                            [formControlName]="'secondaryMobile'">
+                                        <mat-error *ngIf="enquiryForm.get('secondaryMobile').hasError('required')">
+                                            Phone Number  is required
+                                        </mat-error>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="phonenumber w-[48%] flex justify-between">
+                                <div class="firt-nam w-[48%]">
+                                    <mat-form-field class="w-full">
+                                        <mat-label class="text-[#191D23] text-[13px] font-medium">TFN</mat-label>
+                                        <input
+                                            id="phone"                                            
+                                            maxlength="10"
+                                            matInput
+                                            [formControlName]="'tfn'">
+                                        <mat-error *ngIf="enquiryForm.get('tfn').hasError('required')">
+                                            TFN  is required
+                                        </mat-error>
+                                    </mat-form-field>
+                                </div>
+                                <div class="secondary-nam w-[48%]">
+                                    <mat-form-field floatLabel="always" class="w-full">
+                                        <mat-label class="text-[#191D23] text-[13px] font-medium">Date Of Birth</mat-label>
+                                        <input matInput [matDatepicker]="picker" [formControlName]="'dob'" placeholder="MM/DD/YYYY">
+                                        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                                        <mat-datepicker #picker></mat-datepicker>                
+                                        <mat-error *ngIf="enquiryForm.get('dob').hasError('required')">
+                                            DOB  is required
+                                        </mat-error>
+                                      </mat-form-field>
+                                </div>
+                            </div>                            
+                        </div>
+                        <div class="referal-code flex items-center gap-1">
+                            <p class="text-[#191D23] text-[13px] font-medium">Referral Code:</p>
+                            <p class="text-[#191D23] text-[14px] font-semibold">{{updateData.referralCode}}</p>
+                        </div>
+                        <div class="delete-butt mt-5">
+                            <button type="submit"  class="bg-green-800 w-[126px] py-2 rounded-[5px]"><p class="text-white text-[13px] font-semibold">Update Enquiry</p></button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="update-form-right w-[50%] ">
+                <div class="right-form-1 py-[15px] rounded-[6px] bg-white shadow-[0px 5px 10px 0px] shadow-[#047857]">
+                    <div class="right-form-head flex items-center justify-between px-[30px]">
+                        <div class="header">
+                            <h3 class="text-[#191D23] text-[16px] font-semibold">ATO Client +/-</h3>
+                        </div>
+                        <div (click)="atoSearch()" class="search-icon hover:bg-[#00000018] duration-700">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <g opacity="0.4">
+                                <path d="M9.16667 15.8333C12.8486 15.8333 15.8333 12.8486 15.8333 9.16667C15.8333 5.48477 12.8486 2.5 9.16667 2.5C5.48477 2.5 2.5 5.48477 2.5 9.16667C2.5 12.8486 5.48477 15.8333 9.16667 15.8333Z" stroke="#64748B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M17.5 17.5L13.875 13.875" stroke="#64748B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </g>
+                            </svg> 
+                        </div>
+                    </div>
+                    <div class="form-2-border border-[#d9d9d9] border mt-[10px]"></div>
+                    <div class="form-3-content mt-[10px]">
+                        <p class="text-[#FF595A] text-[15px] font-medium text-center">No Records Found..!</p>
+                    </div>
+                </div>
+                <div class="right-form-1 py-[15px] mt-5 rounded-[6px] bg-white shadow-[0px 5px 10px 0px] shadow-[#047857]">
+                    <div class="right-form-head flex items-center justify-between px-[30px]">
+                        <div class="header">
+                            <h3 class="text-[#191D23] text-[16px] font-semibold">ATO Portal Details</h3>
+                        </div>
+                        <div class="search-icon">
+                            <button class="bg-[#F2C94C] rounded-[5px] flex items-center justify-center w-[91px] gap-1 py-[7px]">
+                                <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <g clip-path="url(#clip0_603_7835)">
+                                    <path d="M7.89657 13.5657C11.1182 13.5657 13.7299 10.9541 13.7299 7.73241C13.7299 4.51075 11.1182 1.89908 7.89657 1.89908C4.6749 1.89908 2.06323 4.51075 2.06323 7.73241C2.06323 10.9541 4.6749 13.5657 7.89657 13.5657Z" stroke="#191D23" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M7.89657 5.39909L5.56323 7.73243L7.89657 10.0658" stroke="#191D23" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M10.2299 7.73242H5.56323" stroke="#191D23" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </g>
+                                    <defs>
+                                    <clipPath id="clip0_603_7835">
+                                    <rect width="14" height="14" fill="white" transform="translate(0.896484 0.732422)"/>
+                                    </clipPath>
+                                    </defs>
+                                </svg> 
+                                <p class="text-[13px] font-semibold ">Go Back</p>
+                            </button> 
+                        </div>
+                    </div>
+                    <div class="form-2-border border-[#d9d9d9] border mt-[10px]"></div>
+                    <div class="form-3-content mt-[15px] px-[30px]">
+                        <form action="">
+                            <div class="portal-access">
+                                <div class="access-head-box flex items-center gap-[35px]">
+                                    <div class="access-heade">
+                                        <p class="text-[15px] font-medium text-[#191D23]">Is ATO Portal Accessed ?</p> 
+                                    </div> 
+                                    <div class="radio-butt">
+                                        <mat-radio-group>
+                                            <mat-radio-button class="mr-4" value="Yes">Yes</mat-radio-button>
+                                            <mat-radio-button value="NO">NO</mat-radio-button>
+                                        </mat-radio-group>
+                                    </div>                                  
+                                </div>
+                            </div>
+                            <div class="details-button flex items-center gap-28 mt-3">
+                                <div class="details-text">
+                                    <p class="text-[#191D23] text-[15px] font-medium">Wrong Details</p>
+                                </div>
+                                <div class="intent-button">
+                                    <button class="flex items-center justify-center gap-1 py-[7px] w-[110px] rounded-[5px] bg-[#519259]">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15" fill="none">
+                                            <path d="M2.5 2.5H12.5C13.1875 2.5 13.75 3.0625 13.75 3.75V11.25C13.75 11.9375 13.1875 12.5 12.5 12.5H2.5C1.8125 12.5 1.25 11.9375 1.25 11.25V3.75C1.25 3.0625 1.8125 2.5 2.5 2.5Z" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M13.75 3.75L7.5 8.125L1.25 3.75" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                        <p class="text-[13px] font-semibold text-white">Send SMS</p>
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="right-form-1 py-[15px] mt-5 rounded-[6px] bg-white shadow-[0px 5px 10px 0px] shadow-[#047857]">
+                    <div class="right-form-head px-[30px]">
+                        <div class="header">
+                            <h3 class="text-[#191D23] text-[16px] font-semibold">Comments</h3>
+                        </div>
+                    </div>
+                    <div class="form-2-border w-full border-[#d9d9d9] border mt-[10px]"></div>
+                    <div class="form-3-content mt-[20px] px-[30px]">
+                        <form action="" class="">
+                            <div class="portal-access w-full">
+                                <mat-form-field class="example-full-width w-full">
+                                    <textarea class="resize-none" matInput placeholder="comments..."></textarea>
+                                </mat-form-field>
+                            </div>
+                            <div class="details-button flex items-center gap-28 mt-1">                            
+                                <button class="py-[7px] w-[64px] rounded-[5px] bg-[#047857]">                                       
+                                    <p class="text-[13px] font-semibold text-white">Send</p>
+                                </button>                         
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

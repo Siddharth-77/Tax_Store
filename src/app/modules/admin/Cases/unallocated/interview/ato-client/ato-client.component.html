@@ -1,0 +1,46 @@
+<div class="ato-dialog w-[500px]">
+    <div class="ato-dialog-header">
+        <div class="ato-dialog-head-icon flex items-center justify-between">
+            <h1 class="text-[#191D23] text-lg font-semibold">Search ATO  Client</h1>
+            <svg (click)="atoDialogClose()" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <path d="M12 4L4 12" stroke="#191D23" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M4 4L12 12" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </div>
+        <div class="border mt-4 border-[#d9d9d9]"></div>
+        <div class="ato-input-data mt-5">
+            <form action="" [formGroup]="atoForm">
+                <div class="phonenumber w-full flex justify-between">
+                    <div class="secondary-nam w-[46%]">
+                        <mat-form-field floatLabel="always" class="w-full">
+                            <!-- <mat-label class="text-[#191D23] text-[13px] font-medium">Date Of Birth</mat-label> -->
+                            <input matInput [matDatepicker]="picker" [formControlName]="'dob'" placeholder="MM/DD/YYYY">
+                            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                            <mat-datepicker #picker></mat-datepicker>                
+                            <mat-error *ngIf="atoForm.get('dob').hasError('required')">
+                                DOB  is required
+                            </mat-error>
+                          </mat-form-field>
+                    </div>
+                    <div class="firt-nam w-[46%]">
+                        <mat-form-field class="w-full">
+                            <!-- <mat-label class="text-[#191D23] text-[13px] font-medium">TFN</mat-label> -->
+                            <input
+                                id="phone"                                            
+                                maxlength="10"
+                                matInput
+                                placeholder="TFN"
+                                [formControlName]="'tfn'">
+                            <mat-error *ngIf="atoForm.get('tfn').hasError('required')">
+                                TFN  is required
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                </div> 
+                <div class="byt">
+                    <button class="text-white bg-[#047857] rounded py-[6px] px-[16px] text-[13px] font-semibold">Search</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

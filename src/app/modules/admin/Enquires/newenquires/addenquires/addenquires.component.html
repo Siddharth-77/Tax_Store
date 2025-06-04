@@ -1,0 +1,117 @@
+<div class="tors-add-user w-[450px] rounded-2xl p-4">
+    <div class="tors-add-user-inner">
+        <div class="tors-add-user-head flex items-center justify-between mb-5 ">
+            <div class="tors-add-user-h">
+                <h3 class="text-[18px] font-semibold text-neutral-800">Add New Enquiry</h3>
+            </div>
+            <div class="tors-add-user-icon border-[#d9d9d9] bg-green-50 border p-1 rounded" (click)="dialodClosse()" >
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                    <path d="M12 4L4 12" stroke="#191D23" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M4 4L12 12" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+        </div>
+        <div class="tors-add-user-form">
+            <form action="" [formGroup]="torsAdd" (ngSubmit)="onSubmit()">
+                <div class="first-last-name flex items-center gap-[4%] w-full">
+                    <div class="first-name w-[48%]">
+                        <mat-form-field class="w-full">
+                            <mat-label>First Name</mat-label>
+                            <input
+                                id="firstname"
+                                matInput
+                                [formControlName]="'firstName'">
+                            <!-- <mat-error *ngIf="torsAdd.get('firstName').hasError('required')">
+                                Firstname  is required
+                            </mat-error> -->
+                        </mat-form-field>
+                    </div>
+                    <div class="last-name w-[48%]">
+                        <mat-form-field class="w-full">
+                            <mat-label>Last Name</mat-label>
+                            <input
+                                id="lastname"
+                                matInput
+                                [formControlName]="'lastName'">
+                            <!-- <mat-error *ngIf="torsAdd.get('lastName').hasError('required')">
+                                Lastname  is required
+                            </mat-error> -->
+                        </mat-form-field>
+                    </div>
+               </div>
+               <div class="form-email w-full ">
+                <mat-form-field class="w-full">
+                    <mat-label>Email address</mat-label>
+                    <input
+                        id="email"
+                        matInput
+                        [formControlName]="'email'">
+                    <!-- <mat-error *ngIf="torsAdd.get('email').hasError('required')">
+                        Email address is required
+                    </mat-error> -->
+                    <mat-error *ngIf="torsAdd.get('email').hasError('email')">
+                        Please enter a valid email address
+                    </mat-error>
+                </mat-form-field>
+               </div> 
+               <div class="first-last-name flex items-center gap-[4%] w-full ">
+                   <div class="first-name w-[48%]">
+                    <mat-form-field class="w-full">
+                        <mat-label>Phone Number</mat-label>
+                        <input
+                            id="phone"
+                            (keypress)="numberOnly($event)"onlyNumber
+                            maxlength="10"
+                            matInput
+                            [formControlName]="'phoneNumber'">
+                        <!-- <mat-error *ngIf="torsAdd.get('phoneNumber').hasError('required')">
+                            Phone Number  is required
+                        </mat-error> -->
+                    </mat-form-field>
+                   </div>
+                   <div class="last-name w-[48%]">                    
+                    <mat-form-field class="w-full">
+                        <mat-label>TFN</mat-label>
+                           <input
+                           matInput
+                           [formControlName]="'tfn'"
+                           (keypress)="numberOnly($event)"onlyNumber
+                           maxlength="9"
+                           >
+                        <!-- <mat-error *ngIf="torsAdd.get('tfn').hasError('required')">
+                            Tfn number is required
+                        </mat-error> -->
+                    </mat-form-field>
+                   </div>
+               </div>
+               <div class="first-last-name flex items-center gap-[4%] w-full ">
+               <div class="first-name w-[48%]">
+                <mat-form-field floatLabel="always" class="w-full">
+                    <mat-label>Date of Birth</mat-label>
+                    <input matInput [matDatepicker]="picker" [formControlName]="'dob'" placeholder="MM/DD/YYYY">
+                    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>                
+                    <!-- <mat-error *ngIf="torsAdd.get('dob').hasError('required')">
+                        Username  is required
+                    </mat-error> -->
+                  </mat-form-field>
+               </div>
+               <div class="last-name w-[48%]">
+                <mat-form-field floatLabel="always" class="w-full">
+                    <mat-label>Referral Code</mat-label>
+                    <input matInput 
+                    [formControlName]="'referralCode'"
+                     placeholder="XdGy9Su">                   
+                    <!-- <mat-error *ngIf="torsAdd.get('referralCode').hasError('required')">
+                        hourlyreport  is required
+                    </mat-error> -->
+                  </mat-form-field>
+               </div>
+               </div>           
+               <div class="create mt-2 w-full">
+                <button type="submit" [disabled]="torsAdd.invalid" class="bg-green-700 w-full py-3 px-8 text-lg font-semibold text-white rounded leading-5" >Create</button>
+               </div>
+            </form>                                     
+        </div>
+    </div>
+</div>

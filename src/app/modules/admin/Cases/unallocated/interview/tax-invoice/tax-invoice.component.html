@@ -1,0 +1,441 @@
+<div class="tax-invoice w-[1000px] mb-5">
+    <div class="tax-invoice-inner w-full">
+        <div class="tax-invoice-header flex items-center justify-between p-5">
+            <div class="tiltle text-lg font-semibold text-neutral-900">
+                <p>Preview and Send Estimate</p>
+            </div>
+            <div (click)="close()" class="invoice-icon bg-green-50 border border-[#E7EAEE] rounded p-1">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                    <path d="M12 4L4 12" stroke="#191D23" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M4 4L12 12" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+        </div>
+        <div class="border border-[#d9d9d9]"></div>
+    </div>
+    <div class="invoice-tabs px-6">
+        <div class="invoice-tabs-inner">
+            <mat-tab-group animationDuration="0ms">
+                <mat-tab label="Calculation Sheet">
+                    <div class="scrollable-content">
+                        <div class="sheet-1 border-t-[20px] border-b-[10px] border-x-[20px] border-green-50 rounded-lg">                  
+                            <div class="sheet-1-inner">
+                                <div class="sheet-1-header-strip flex items-center justify-between p-6">
+                                            <div class="header-logo-text flex items-center gap-[6px]">
+                                                <div class="head-logo">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 35 35" fill="none">
+                                                        <path d="M22.0943 3.5H11.5103C6.21834 3.5 4.90234 4.914 4.90234 10.556V26.32C4.90234 30.044 6.94634 30.926 9.42434 28.266L9.43834 28.252C10.5863 27.034 12.3363 27.132 13.3303 28.462L14.7443 30.352C15.8783 31.85 17.7123 31.85 18.8463 30.352L20.2603 28.462C21.2683 27.118 23.0183 27.02 24.1663 28.252C26.6583 30.912 28.6883 30.03 28.6883 26.306V10.556C28.7023 4.914 27.3863 3.5 22.0943 3.5ZM12.6023 10.5C13.3723 10.5 14.0023 11.13 14.0023 11.9C14.0023 12.67 13.3863 13.3 12.6023 13.3C11.8183 13.3 11.2023 12.67 11.2023 11.9C11.2023 11.13 11.8183 10.5 12.6023 10.5ZM21.0023 20.3C20.2183 20.3 19.6023 19.67 19.6023 18.9C19.6023 18.13 20.2323 17.5 21.0023 17.5C21.7723 17.5 22.4023 18.13 22.4023 18.9C22.4023 19.67 21.7863 20.3 21.0023 20.3ZM22.2623 11.326L12.8403 20.748C12.6303 20.958 12.3643 21.056 12.0983 21.056C11.8323 21.056 11.5663 20.958 11.3563 20.748C11.1611 20.5504 11.0516 20.2838 11.0516 20.006C11.0516 19.7282 11.1611 19.4616 11.3563 19.264L20.7783 9.842C21.1843 9.436 21.8563 9.436 22.2623 9.842C22.6683 10.248 22.6683 10.92 22.2623 11.326Z" fill="#047857"/>
+                                                    </svg>
+                                                </div>
+                                                <div class="head-text">
+                                                    <h1 class="text-[26px] font-extrabold text-[#047857]">TAX STORE</h1>
+                                                </div>
+                                            </div>
+                                            <div class="address text-[11px] text-right font-medium">
+                                                <p>ABN: 49 124 038 946 <br>
+                                                    Blacktown:Level 1, 6 Main Street <br>
+                                                    Phone: 1300 768 284 <br>
+                                                    Fax: 1300 768 384</p>
+                                            </div>
+                                </div>
+                                <div class="top-borderr flex justify-end bg-[#047857]">
+                                            <p class="text-[21px] mr-36 bg-white w-fit font-bold text-[#047857] px-4">TAX INVOICE</p>
+                                </div>
+                                <div class="redund-sheet p-6">
+                                    <div class="refund-sheet-inner">
+                                        <div class="sheet-header flex justify-center">
+                                            <h1 class="text-[15px font-extrabold text-neutral-900 w-fit border-b-2 border-neutral-900">REFUND CALUCULATION SHEET</h1>
+                                        </div>
+                                        <div class="client-info flex items-center justify-between mt-4">
+                                            <div class="client-name flex items-center gap-1">
+                                                <h1 class="text-[13px] font-semibold">Name:</h1>
+                                                <p class="text-[13px] font-semibold text-[#047857]">Amith</p>
+                                            </div>
+                                            <div class="client-name flex items-center gap-1">
+                                                <h1 class="text-[13px] font-semibold">Tax File No:</h1>
+                                                <p class="text-[13px] font-semibold text-[#047857]">676767</p>
+                                            </div>
+                                        </div>
+                                        <div class="form-1 mt-4">
+                                            <div class="section-1 rounded border-2 border-[#E7EAEE] py-2">
+                                                <ul>
+                                                    <li class="flex items-center justify-between text-13px font-medium py-1 px-3">
+                                                        <p>Refund as per Income Tax Return - 2023</p>
+                                                        <p>$2,256.00</p>
+                                                    </li>
+                                                    <li class="border border-[#E7EAEE] mx-3 my-[2px]"></li>
+                                                    <li class="flex items-center justify-between text-13px font-medium py-1 px-3">
+                                                        <p>Less: Current ATO Debt</p>
+                                                        <p>$1,256.00</p>
+                                                    </li>
+                                                    <li class="flex my-[2px] items-center justify-between text-13px py-1 px-3 text-[#047857] font-medium bg-[#D9FBE6]">
+                                                        <p>Expected Tax Refund:</p>
+                                                        <p>$3,256.00</p>
+                                                    </li>
+                                                    <li class="text-13px py-3 px-3 font-semibold ">
+                                                        <p>Less:Fees & Charges* for-: </p>
+                                                    </li>
+                                                </ul>
+                                                <div class="sec-1-inn">
+                                                    <ul>
+                                                        <li class="taop flex justify-between text-13px py-1 font-medium">
+                                                            <p>(a) Tax Return Charges - 2022 Tax Return</p>
+                                                            <p>$49.00</p>
+                                                        </li>
+                                                        <li class="border my-[2px] border-[#E7EAEE] mr-3 ml-[35px]"></li>
+                                                        <li class="flex items-center justify-between text-13px py-1 pl-[35px] font-medium">
+                                                            <p>Accontant Time Charge</p>
+                                                            <p>$3,256.00</p>
+                                                        </li>
+                                                        <li class="border my-[2px] border-[#E7EAEE] mr-3 ml-[35px]"></li>
+                                                        <li class="flex items-center justify-between text-13px py-1 pl-[35px] font-medium">
+                                                            <p>Computation of Deductions/Offsets</p>
+                                                            <p>$3,256.00</p>
+                                                        </li>
+                                                        <li class="border my-[2px] border-[#E7EAEE] mr-3 ml-[35px]"></li>
+                                                        <li class="flex items-center justify-between text-13px py-1 pl-[35px] font-medium">
+                                                            <p>Verification of Income & Debts with ATO</p>
+                                                            <p>$3,256.00</p>
+                                                        </li>
+                                                        <li class="border my-[2px] border-[#E7EAEE] mr-3 ml-[35px]"></li>
+                                                        <li class="flex items-center justify-between text-13px py-1 pl-[35px] font-medium">
+                                                            <p>Assessment of Debts with Centrelink/Child Support</p>
+                                                            <p>$3,256.00</p>
+                                                        </li>
+                                                        <li class="border my-[2px] border-[#E7EAEE] mr-3 ml-[35px]"></li>
+                                                        <li class="flex items-center justify-between text-13px py-1 pl-[35px] font-medium">
+                                                            <p>Fee from refund service</p>
+                                                            <p>$3,256.00</p>
+                                                        </li>
+                                                        <li class="border my-[2px] border-[#E7EAEE] mr-3 ml-[35px]"></li>
+                                                        <li class="flex items-center justify-between text-13px py-1 pl-[35px] font-medium">
+                                                            <p>Preparation of Business Worksheet</p>
+                                                            <p>$3,256.00</p>
+                                                        </li>
+                                                        <li class="border my-[2px] border-[#E7EAEE] mr-3 ml-[35px]"></li>
+                                                        <li class="flex items-center justify-between text-13px py-1 pl-[35px] font-medium">
+                                                            <p>Preparation of Rental Schedule</p>
+                                                            <p>$3,256.00</p>
+                                                        </li>
+                                                        <li class="border my-[2px] border-[#E7EAEE] mr-3 ml-[35px]"></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="sec-1-inn">
+                                                    <ul>
+                                                        <li class="taop flex justify-between text-13px py-1 font-medium">
+                                                            <p>(b) Charges as advertised in Website:</p>
+                                                            <p>$49.00</p>
+                                                        </li>
+                                                        <li class="border my-[2px] border-[#E7EAEE] mr-3 ml-[35px]"></li>
+                                                        <li class="flex items-center justify-between text-13px py-1 pl-[35px] font-medium">
+                                                            <p>Cash Deposit/ EFT trf fees</p>
+                                                            <p>$3,256.00</p>
+                                                        </li>
+                                                        <li class="border my-[2px] border-[#E7EAEE] mr-3 ml-[35px]"></li>
+                                                        <li class="flex items-center justify-between text-13px py-1 pl-[35px] font-medium">
+                                                            <p>Discount</p>
+                                                            <p>$32.00</p>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="section-1-scecond-table w-full border-2 border-[#E7EAEE] mt-3 p-3">
+                                                <ul>
+                                                    <li class="flex justify-between text-13px py-1 font-medium w-full">
+                                                        <p class="w-[80%] text-right">Add Goods & Services Tax @10% :</p>
+                                                        <p class="w-[20%] text-right">$49.00</p>
+                                                    </li>
+                                                    <li class="border my-[2px] border-[#E7EAEE]"></li>
+                                                    <li class="flex items-center justify-between text-13px py-1 font-semibold">
+                                                        <p class="w-[80%] text-right">Net Refund :</p>
+                                                        <p class="w-[20%] text-right text-green-800">$56.00</p>
+                                                    </li>
+                                                    <li class="border my-[2px] border-[#E7EAEE]"></li>
+                                                    <li class="flex items-center justify-between text-13px py-1 font-semibold">
+                                                        <p class="w-[80%] text-right">Payable Now :</p>
+                                                        <p class="w-[20%] text-right">$32.00</p>
+                                                    </li>
+                                                    <li class="border my-[2px] border-[#E7EAEE]"></li>
+                                                    <li class="flex items-center justify-between text-13px py-1 font-semibold">
+                                                        <p class="w-[80%] text-right">Payable at the time of Refund by ATO : <br>
+                                                            (Subtracted by Debts with ATO/Centrelink/Child Support/other)
+                                                        </p>
+                                                        <p class="w-[20%] text-green-800 text-right">$132</p>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="conditions text-[12px] font-medium text-[#65758b] flex flex-col gap-2 mt-6">
+                                                <p>
+                                                    *Fees for (a) Tax Return Charges refer to Tax consultation, preparing & lodging Income tax return(s)
+                                                </p>
+                                                <p>
+                                                    *Fees for (b) 'On the Spot' Tax Refund include - Fees for verification of debts with ATO,Centrelink & Child Support Agency verification of your income & tax paid from Tax Agent portal, Finance cost of 'On the Spot Refund', Staff costs for issuing 'On the Spot refund', Risk of delay in Tax refund, Risk of loss of 'On the Spot Refund' issued
+                                                </p>
+                                                <p>
+                                                    - I confirm that I am allowing Tax Agent to add me into ATO Portal and to change my Bank Details in ATO Portal to match with ITR Lodged. I understand that Tax Agent may have to do it multiple times (if required) so that ATO records can be rectified.
+                                                </p>
+                                                <p>
+                                                    - I confirm that I have been offered above Option by Tax Agent which I have accepted.
+                                                </p>
+                                                <p>
+                                                    - I declare that I have understood and accepted the figures of my Estimated Tax Refund, Tax Agent fees for preparing & lodging tax return, Tax Agent fees for 'On the Spot Refund'
+                                                </p>
+                                                <p>
+                                                    - I instruct Austrlian Taxation Office to tranfer my tax refund in Tax Agent Trust Account.
+                                                </p>
+                                                <p>
+                                                    - I also authorise Tax Agent to deduct the above Fees & Charges from my tax refund and pay me the balance.
+                                                </p>
+                                                <p>
+                                                    - I also authorise Tax Agent to lodge necessary amendments to these tax returns as and when required.
+                                                </p>
+                                                <p>
+                                                    - I also declare that I have received copy of ITR Lodged, Tax Invoice & Refund Calculation.
+                                                </p>
+                                                <p>
+                                                    - I reviewed, understood and accept terms and conditions tax refund on spot TAN-7833009 as mentioned in their website and authorize tax refund on spot to lodge my tax return with ATO.
+                                                </p>
+                                                <p>
+                                                    - * This will be tax invoice once fee is received by us.
+                                                </p>                                           
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>                      
+                        </div>
+                        <div class="sheet-1 border-b-[20px] border-t-[10px] border-x-[20px] border-green-50 rounded-lg">                  
+                            <div class="sheet-1-inner">
+                                <div class="sheet-1-header-strip flex items-center justify-between p-6">
+                                            <div class="header-logo-text flex items-center gap-[6px]">
+                                                <div class="head-logo">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 35 35" fill="none">
+                                                        <path d="M22.0943 3.5H11.5103C6.21834 3.5 4.90234 4.914 4.90234 10.556V26.32C4.90234 30.044 6.94634 30.926 9.42434 28.266L9.43834 28.252C10.5863 27.034 12.3363 27.132 13.3303 28.462L14.7443 30.352C15.8783 31.85 17.7123 31.85 18.8463 30.352L20.2603 28.462C21.2683 27.118 23.0183 27.02 24.1663 28.252C26.6583 30.912 28.6883 30.03 28.6883 26.306V10.556C28.7023 4.914 27.3863 3.5 22.0943 3.5ZM12.6023 10.5C13.3723 10.5 14.0023 11.13 14.0023 11.9C14.0023 12.67 13.3863 13.3 12.6023 13.3C11.8183 13.3 11.2023 12.67 11.2023 11.9C11.2023 11.13 11.8183 10.5 12.6023 10.5ZM21.0023 20.3C20.2183 20.3 19.6023 19.67 19.6023 18.9C19.6023 18.13 20.2323 17.5 21.0023 17.5C21.7723 17.5 22.4023 18.13 22.4023 18.9C22.4023 19.67 21.7863 20.3 21.0023 20.3ZM22.2623 11.326L12.8403 20.748C12.6303 20.958 12.3643 21.056 12.0983 21.056C11.8323 21.056 11.5663 20.958 11.3563 20.748C11.1611 20.5504 11.0516 20.2838 11.0516 20.006C11.0516 19.7282 11.1611 19.4616 11.3563 19.264L20.7783 9.842C21.1843 9.436 21.8563 9.436 22.2623 9.842C22.6683 10.248 22.6683 10.92 22.2623 11.326Z" fill="#047857"/>
+                                                    </svg>
+                                                </div>
+                                                <div class="head-text">
+                                                    <h1 class="text-[26px] font-extrabold text-[#047857]">TAX STORE</h1>
+                                                </div>
+                                            </div>
+                                            <div class="address text-[11px] text-right font-medium">
+                                                <p>ABN: 49 124 038 946 <br>
+                                                    Blacktown:Level 1, 6 Main Street <br>
+                                                    Phone: 1300 768 284 <br>
+                                                    Fax: 1300 768 384</p>
+                                            </div>
+                                </div>
+                                <div class="top-borderr flex justify-end bg-[#047857]">
+                                            <p class="text-[21px] mr-36 bg-white w-fit font-bold text-[#047857] px-4">TAX INVOICE</p>
+                                </div>
+                                <div class="redund-sheet p-6">
+                                    <div class="refund-sheet-inner">
+                                        <div class="sheet-header flex justify-center">
+                                            <h1 class="text-[15px font-extrabold text-neutral-900 w-fit border-b-2 border-neutral-900">REFUND CALUCULATION SHEET</h1>
+                                        </div>
+                                        <div class="client-info flex items-center justify-between mt-4">
+                                            <div class="client-name flex items-center gap-1">
+                                                <h1 class="text-[13px] font-semibold">Name:</h1>
+                                                <p class="text-[13px] font-semibold text-[#047857]">Amith</p>
+                                            </div>
+                                            <div class="client-name flex items-center gap-1">
+                                                <h1 class="text-[13px] font-semibold">Tax File No:</h1>
+                                                <p class="text-[13px] font-semibold text-[#047857]">676767</p>
+                                            </div>
+                                        </div>
+                                        <div class="form-1 mt-4">
+                                            <div class="section-1 rounded border-2 border-[#E7EAEE] py-2">
+                                                <ul>
+                                                    <li class="flex items-center justify-between text-13px font-medium py-1 px-3">
+                                                        <p>Refund as per Income Tax Return - 2022</p>
+                                                        <p>$2,256.00</p>
+                                                    </li>
+                                                    <li class="border border-[#E7EAEE] mx-3 my-[2px]"></li>
+                                                    <li class="flex items-center justify-between text-13px font-medium py-1 px-3">
+                                                        <p>Less: Current ATO Debt</p>
+                                                        <p>$1,256.00</p>
+                                                    </li>
+                                                    <li class="flex my-[2px] items-center justify-between text-13px py-1 px-3 text-[#047857] font-medium bg-[#D9FBE6]">
+                                                        <p>Expected Tax Refund:</p>
+                                                        <p>$3,256.00</p>
+                                                    </li>
+                                                    <li class="text-13px py-3 px-3 font-semibold ">
+                                                        <p>Less:Fees & Charges* for-: </p>
+                                                    </li>
+                                                </ul>
+                                                <div class="sec-1-inn">
+                                                    <ul>
+                                                        <li class="taop flex justify-between text-13px py-1 font-medium">
+                                                            <p>(a) Tax Return Charges - 2022 Tax Return</p>
+                                                            <p>$49.00</p>
+                                                        </li>
+                                                        <li class="border my-[2px] border-[#E7EAEE] mr-3 ml-[35px]"></li>
+                                                        <li class="flex items-center justify-between text-13px py-1 pl-[35px] font-medium">
+                                                            <p>Accontant Time Charge</p>
+                                                            <p>$3,256.00</p>
+                                                        </li>
+                                                        <li class="border my-[2px] border-[#E7EAEE] mr-3 ml-[35px]"></li>
+                                                        <li class="flex items-center justify-between text-13px py-1 pl-[35px] font-medium">
+                                                            <p>Computation of Deductions/Offsets</p>
+                                                            <p>$3,256.00</p>
+                                                        </li>
+                                                        <li class="border my-[2px] border-[#E7EAEE] mr-3 ml-[35px]"></li>
+                                                        <li class="flex items-center justify-between text-13px py-1 pl-[35px] font-medium">
+                                                            <p>Verification of Income & Debts with ATO</p>
+                                                            <p>$3,256.00</p>
+                                                        </li>
+                                                        <li class="border my-[2px] border-[#E7EAEE] mr-3 ml-[35px]"></li>
+                                                        <li class="flex items-center justify-between text-13px py-1 pl-[35px] font-medium">
+                                                            <p>Assessment of Debts with Centrelink/Child Support</p>
+                                                            <p>$3,256.00</p>
+                                                        </li>
+                                                        <li class="border my-[2px] border-[#E7EAEE] mr-3 ml-[35px]"></li>
+                                                        <li class="flex items-center justify-between text-13px py-1 pl-[35px] font-medium">
+                                                            <p>Fee from refund service</p>
+                                                            <p>$3,256.00</p>
+                                                        </li>
+                                                        <li class="border my-[2px] border-[#E7EAEE] mr-3 ml-[35px]"></li>
+                                                        <li class="flex items-center justify-between text-13px py-1 pl-[35px] font-medium">
+                                                            <p>Preparation of Business Worksheet</p>
+                                                            <p>$3,256.00</p>
+                                                        </li>
+                                                        <li class="border my-[2px] border-[#E7EAEE] mr-3 ml-[35px]"></li>
+                                                        <li class="flex items-center justify-between text-13px py-1 pl-[35px] font-medium">
+                                                            <p>Preparation of Rental Schedule</p>
+                                                            <p>$3,256.00</p>
+                                                        </li>
+                                                        <li class="border my-[2px] border-[#E7EAEE] mr-3 ml-[35px]"></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="sec-1-inn">
+                                                    <ul>
+                                                        <li class="taop flex justify-between text-13px py-1 font-medium">
+                                                            <p>(b) Charges as advertised in Website:</p>
+                                                            <p>$49.00</p>
+                                                        </li>
+                                                        <li class="border my-[2px] border-[#E7EAEE] mr-3 ml-[35px]"></li>
+                                                        <li class="flex items-center justify-between text-13px py-1 pl-[35px] font-medium">
+                                                            <p>Cash Deposit/ EFT trf fees</p>
+                                                            <p>$3,256.00</p>
+                                                        </li>
+                                                        <li class="border my-[2px] border-[#E7EAEE] mr-3 ml-[35px]"></li>
+                                                        <li class="flex items-center justify-between text-13px py-1 pl-[35px] font-medium">
+                                                            <p>Discount</p>
+                                                            <p>$32.00</p>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="section-1-scecond-table w-full border-2 border-[#E7EAEE] mt-3 p-3">
+                                                <ul>
+                                                    <li class="flex justify-between text-13px py-1 font-medium w-full">
+                                                        <p class="w-[80%] text-right">Add Goods & Services Tax @10% :</p>
+                                                        <p class="w-[20%] text-right">$49.00</p>
+                                                    </li>
+                                                    <li class="border my-[2px] border-[#E7EAEE]"></li>
+                                                    <li class="flex items-center justify-between text-13px py-1 font-semibold">
+                                                        <p class="w-[80%] text-right">Net Refund :</p>
+                                                        <p class="w-[20%] text-right text-green-800">$56.00</p>
+                                                    </li>
+                                                    <li class="border my-[2px] border-[#E7EAEE]"></li>
+                                                    <li class="flex items-center justify-between text-13px py-1 font-semibold">
+                                                        <p class="w-[80%] text-right">Payable Now :</p>
+                                                        <p class="w-[20%] text-right">$32.00</p>
+                                                    </li>
+                                                    <li class="border my-[2px] border-[#E7EAEE]"></li>
+                                                    <li class="flex items-center justify-between text-13px py-1 font-semibold">
+                                                        <p class="w-[80%] text-right">Payable at the time of Refund by ATO : <br>
+                                                            (Subtracted by Debts with ATO/Centrelink/Child Support/other)
+                                                        </p>
+                                                        <p class="w-[20%] text-green-800 text-right">$132</p>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="conditions text-[12px] font-medium text-[#65758b] flex flex-col gap-2 mt-6">
+                                                <p>
+                                                    *Fees for (a) Tax Return Charges refer to Tax consultation, preparing & lodging Income tax return(s)
+                                                </p>
+                                                <p>
+                                                    *Fees for (b) 'On the Spot' Tax Refund include - Fees for verification of debts with ATO,Centrelink & Child Support Agency verification of your income & tax paid from Tax Agent portal, Finance cost of 'On the Spot Refund', Staff costs for issuing 'On the Spot refund', Risk of delay in Tax refund, Risk of loss of 'On the Spot Refund' issued
+                                                </p>
+                                                <p>
+                                                    - I confirm that I am allowing Tax Agent to add me into ATO Portal and to change my Bank Details in ATO Portal to match with ITR Lodged. I understand that Tax Agent may have to do it multiple times (if required) so that ATO records can be rectified.
+                                                </p>
+                                                <p>
+                                                    - I confirm that I have been offered above Option by Tax Agent which I have accepted.
+                                                </p>
+                                                <p>
+                                                    - I declare that I have understood and accepted the figures of my Estimated Tax Refund, Tax Agent fees for preparing & lodging tax return, Tax Agent fees for 'On the Spot Refund'
+                                                </p>
+                                                <p>
+                                                    - I instruct Austrlian Taxation Office to tranfer my tax refund in Tax Agent Trust Account.
+                                                </p>
+                                                <p>
+                                                    - I also authorise Tax Agent to deduct the above Fees & Charges from my tax refund and pay me the balance.
+                                                </p>
+                                                <p>
+                                                    - I also authorise Tax Agent to lodge necessary amendments to these tax returns as and when required.
+                                                </p>
+                                                <p>
+                                                    - I also declare that I have received copy of ITR Lodged, Tax Invoice & Refund Calculation.
+                                                </p>
+                                                <p>
+                                                    - I reviewed, understood and accept terms and conditions tax refund on spot TAN-7833009 as mentioned in their website and authorize tax refund on spot to lodge my tax return with ATO.
+                                                </p>
+                                                <p>
+                                                    - * This will be tax invoice once fee is received by us.
+                                                </p>                                           
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>                      
+                        </div>
+                    </div>
+                </mat-tab>
+                <mat-tab label="Email Body">
+                    <div class="email-body p-4 bg-green-50 my-3 h-[530px]">
+                        <div class="email-body-inner p-2">
+                            <div class="top-text text-[14px] font-semibold flex flex-col gap-2">
+                                <p>You will get refund <span class="text-[#05CD33]">$300.00</span> next business working day into the bank account & <span class="text-[#05CD33]">$2931.00 *</span> in 7 to 10 days (subject to ATO) when ATO will release your refund.</p>
+                                <p>Please click below button called <strong>"View & Approve"</strong> to view and give us authority to lodge your Tax Return.</p>
+                            </div>
+                            <div class="mid-button my-6">
+                                <button class="bg-green-900 text-[14px] font-semibold text-white rounded py-[7px] px-4">View & Approve</button>
+                            </div>
+                            <div class="pay-conditoion text-[14px] font-medium">
+                                <p>
+                                    Your Tax Estimate is based on Taxation information provided by you- via email communication/documents upload & telephonic interview information AND available from the ATO portal - Prefill report/ STP Income Statements. In case you have authorized to lodge your 2023 Tax Return before 1July 2023 - Please note that ATO Only accepts & processes 2023 Tax returns after 1July 2023. Tax Office takes 2 weeks from 1July 2023 to release 2023 Tax Refund. You understand that Tax Estimate provided to you before 1July 2023 may be different to the Actual Tax Refund Estimate - Simply because ATO regularly updates your Income in June- Aug 2023 and ATO assessment is based on Current figures available with ATO at the time of Assessment by Tax Office. For this reason, there might be a discrepancy between Refund Figures as Lodged by Us and the Actual Refund issued by ATO. Before the Lodgment of the 2023 Tax Return, We will Update you on Changes to your Tax Return Estimate VIA Phone Call/ SMS / Email. 
+                                </p>
+                                <p class="mt-2">
+                                    Once the 2023 tax Return is Authorized by you, You are expressly authorizing us to lodge the 2023 Tax Return Based on Current Figures as available on the Lodgment date in ATO records and NO separate authorization will be required just for Income update. You will view & approve these documents - Draft Tax Return, Tax Invoice for approval, Draft Tax Calculation estimate before and after our Fees, the Draft Income Tax return for all years of ATO lodgment based on in format on provided in the ATO Portal and info/documents provided by you as per recent interview. Please review carefully all the income & deductions as mentioned in the Draft income tax return.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </mat-tab>
+                <mat-tab label="SMS Body">
+                    <div class="sms-body bg-green-50 h-[530px]">
+                        <div class="sms-body-inner mt-5">
+                            <div class="letter p-5">
+                                <h1 class="text-[14px] font-bold">Hi Joshua Carroll,</h1>
+                                <p class="text-[14px] font-medium mt-9">ACTION REQUIRED :YOUR TAX REFUND IS WAITING CLAIM TODAY.</p>
+                                <p class="text-[14px] font-medium mt-1">Please CLICK on approval link and enter bank details and upload Photo ID.Click to approve terms & conditions and press SUBMIT.</p>
+                                <p class="text-[14px] font-medium mt-4">You will get refund $300.00 next business working day into the bank account & $2931.00* in 7 to 10 days (subject to ATO) when ATO will release your refund.</p>
+                                <p class="text-[14px] font-medium mt-4">https://client.taxrefundonspot.com.au/authority/joshua-7591</p>
+                                <p class="text-[14px] font-semibold mt-9">Thank you <br>
+                                    Tax Refund On Spot ABN:49124 038 946 <br>
+                                    TAN:78339009 <br>
+                                    1300 768 284 <br>
+                                    www.taxrefundonspot. com.au</p>
+                            </div>
+                        </div>
+                    </div>
+                </mat-tab>
+            </mat-tab-group>
+        </div>
+        <div class="same-buttons flex gap-3 ml-5">
+            <button class="text-[14px] bg-green-900 font-semibold rounded py-[8px] px-5 text-white">Send</button>
+            <button (click)="close()" class="text-[14px] bg-[#E7EAEE] font-semibold rounded py-[8px] px-5 text-[#000]">Cancel</button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,102 @@
+<div class="tors-add-user w-[470px] rounded-2xl p-4">
+    <div class="tors-add-user-inner">
+        <div class="tors-add-user-head flex items-center justify-between mb-5">
+            <div class="tors-add-user-h">
+                <h3 class="text-[20px] font-semibold text-neutral-800">
+                    {{ modify ? "Update" : "Create" }} Team
+                </h3>
+            </div>
+            <div
+                class="tors-add-user-icon border p-1 border-[#d9d9d9] bg-green-50 rounded"
+                 matDialogClose
+            >
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 16 16"
+                    fill="none"
+                >
+                    <path
+                        d="M12 4L4 12"
+                        stroke="#191D23"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    />
+                    <path
+                        d="M4 4L12 12"
+                        stroke="black"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    />
+                </svg>
+            </div>
+        </div>
+        <div class="tors-add-user-form">
+            <form [formGroup]="torsAdd">
+                <div class="first-last-name flex items-center gap-[4%] w-full">
+                    <div class="first-name w-full">
+                        <mat-form-field class="w-full">
+                            <mat-label>Team Name</mat-label>
+                            <input
+                                id="teamname"
+                                matInput
+                                [formControlName]="'teamName'"
+                            />
+                            <!-- <mat-error
+                                *ngIf="
+                                    torsAdd.get('teamName').hasError('required')
+                                "
+                            >
+                                Teamname is required
+                            </mat-error> -->
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="first-last-name w-full">
+                    <div class="last-name w-full">
+                        <label class="font-semibold">Team Leader*</label>
+                        <ng-select
+                            [items]="leaders"
+                            bindLabel="userName"
+                            bindValue="_id"
+                            placeholder="choose team Leader"
+                            [formControlName]="'teamLeader'"
+                            (change)="selectTeamLeader($event)"
+                        >
+                        </ng-select>
+                        <!-- <mat-error   *ngIf="torsAdd.get('teamLeader').hasError('required')">
+                                Leader name is required
+                            </mat-error> -->
+                    </div>
+                </div>
+                <div class="last-name w-full mt-4">
+                    <label class="font-semibold">Team Members*</label>
+                    <ng-select
+                        class="mt-1"
+                        [items]="members"
+                        [multiple]="true"
+                        bindLabel="userName"
+                        bindValue="_id"
+                        placeholder="choose team members"
+                        [formControlName]="'teamMembers'"
+                        (change)="selectMembers($event)"
+                    >
+                    </ng-select>
+                </div>
+                <div class="create mt-8 w-full">
+                    <button
+                        type="submit"
+                        (click)="submit()"
+                        [disabled]="torsAdd.invalid"
+                        class="bg-green-700 w-full py-3 px-8 text-lg font-semibold text-white rounded leading-5"
+                    >
+                        {{ modify ? "Update" : "Create" }}
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

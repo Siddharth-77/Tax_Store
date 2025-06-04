@@ -1,0 +1,178 @@
+<div class="tors-add-user w-[505px] rounded-2xl p-6">
+    <div class="tors-add-user-inner">
+        <div class="tors-add-user-head flex items-center justify-between mb-5 ">
+            <div class="tors-add-user-h">
+                <h3 class="text-[20px] font-semibold text-neutral-800">{{modify ? 'Update' :'Create'}} Tors User</h3>
+            </div>
+            <div class="tors-add-user-icon border p-1 border-[#d9d9d9] rounded bg-green-50" matDialogClose (click)="dialodClosse()" >
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                    <path d="M12 4L4 12" stroke="#191D23" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M4 4L12 12" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+        </div>
+        <div class="tors-add-user-form">
+            <form action="" [formGroup]="torsAdd" (ngSubmit)="onSubmit()">
+                <div class="first-last-name flex items-center gap-[4%] w-full">
+                    <div class="first-name w-[48%]">
+                        <mat-form-field class="w-full">
+                            <mat-label>First Name</mat-label>
+                            <input
+                                id="firstname"
+                                matInput
+                                [formControlName]="'firstName'">
+                            <!-- <mat-error *ngIf="torsAdd.get('firstName').hasError('required')">
+                                Firstname  is required
+                            </mat-error> -->
+                        </mat-form-field>
+                    </div>
+                    <div class="last-name w-[48%]">
+                        <mat-form-field class="w-full">
+                            <mat-label>Last Name</mat-label>
+                            <input
+                                id="lastname"
+                                matInput
+                                [formControlName]="'lastName'">
+                            <!-- <mat-error *ngIf="torsAdd.get('lastName').hasError('required')">
+                                Lastname  is required
+                            </mat-error> -->
+                        </mat-form-field>
+                    </div>
+               </div>
+               <div class="form-email w-full ">
+                <mat-form-field class="w-full">
+                    <mat-label>Email address</mat-label>
+                    <input
+                        id="email"
+                        matInput
+                        [formControlName]="'email'">
+                    <!-- <mat-error *ngIf="torsAdd.get('email').hasError('required')">
+                        Email address is required
+                    </mat-error>
+                    <mat-error *ngIf="torsAdd.get('email').hasError('email')">
+                        Please enter a valid email address
+                    </mat-error> -->
+                </mat-form-field>
+               </div> 
+               <div class="first-last-name flex items-center gap-[4%] w-full ">
+                   <div class="first-name w-[48%]">
+                    <mat-form-field class="w-full">
+                        <mat-label>Phone Number</mat-label>
+                        <input
+                            id="phone"
+                            (keypress)="numberOnly($event)"onlyNumber
+                            maxlength="10"
+                            matInput
+                            [formControlName]="'phoneNumber'">
+                        <!-- <mat-error *ngIf="torsAdd.get('phoneNumber').hasError('required')">
+                            Phone Number  is required
+                        </mat-error> -->
+                    </mat-form-field>
+                   </div>
+                   <div class="last-name w-[48%]">                    
+                    <mat-form-field class="w-full">
+                        <mat-label>Role</mat-label>
+                        <mat-select [formControlName]="'role'">
+                          <mat-option value="caller">caller</mat-option>
+                          <mat-option value="accountant">Accountant</mat-option>
+                          <mat-option value="admin">Admin</mat-option>
+                          <mat-option value="superAdmin">Superadmin</mat-option>
+                        </mat-select>
+                        <!-- <mat-error *ngIf="torsAdd.get('role').hasError('required')">
+                            Role  is required
+                        </mat-error> -->
+                      </mat-form-field>
+                   </div>
+               </div>
+               <div class="first-last-name flex items-center gap-[4%] w-full ">
+               <div class="first-name w-[48%]">
+                <mat-form-field floatLabel="always" class="w-full">
+                    <mat-label>User Name</mat-label>
+                    <input matInput type="text" class="example-right-align"
+                    [formControlName]="'userName'"
+                     placeholder="Username">
+                    <!-- <mat-error *ngIf="torsAdd.get('userName').hasError('required')">
+                        Username  is required
+                    </mat-error> -->
+                  </mat-form-field>
+               </div>
+               <div class="last-name w-[48%]">
+                <mat-form-field floatLabel="always" class="w-full">
+                    <mat-label>Hourly Report</mat-label>
+                    <input matInput type="text" class="example-right-align"
+                    [formControlName]="'hourlyReport'"
+                     placeholder="0">
+                    <!-- <mat-error *ngIf="torsAdd.get('hourlyReport').hasError('required')">
+                        hourlyreport  is required
+                    </mat-error> -->
+                  </mat-form-field>
+               </div>
+               </div>
+               <div class="first-last-name flex items-center gap-[4%] w-full ">
+                   <div class="first-name w-[48%] relative">
+                    <mat-form-field class="w-full">
+                        <mat-label>Password</mat-label>
+                        <input
+                            id="password"
+                            matInput
+                            type="password" (keyup)="modifyPassword($event)"
+                            [formControlName]="'password'"
+                            #passwordField>
+                        <button
+                            mat-icon-button
+                            type="button"
+                            (click)="passwordField.type === 'password' ? passwordField.type = 'text' : passwordField.type = 'password'"
+                            matSuffix>
+                            <mat-icon
+                                class="icon-size-5"
+                                *ngIf="passwordField.type === 'password'"
+                                [svgIcon]="'heroicons_solid:eye'"></mat-icon>
+                            <mat-icon
+                                class="icon-size-5"
+                                *ngIf="passwordField.type === 'text'"
+                                [svgIcon]="'heroicons_solid:eye-off'"></mat-icon>
+                        </button>
+                        <!-- <mat-error>
+                            Password is required
+                        </mat-error> -->
+                    </mat-form-field>
+                   </div>
+                    <div class="last-name w-[48%] relative">
+                        <mat-form-field class="w-full">
+                            <mat-label>Password (Confirm)</mat-label>
+                            <input
+                                id="password-confirm"
+                                matInput
+                                type="password"
+                                [formControlName]="'passwordConfirm'"
+                                #passwordConfirmField>
+                            <button
+                                mat-icon-button
+                                type="button"
+                                (click)="passwordConfirmField.type === 'password' ? passwordConfirmField.type = 'text' : passwordConfirmField.type = 'password'"
+                                matSuffix>
+                                <mat-icon
+                                    class="icon-size-5"
+                                    *ngIf="passwordConfirmField.type === 'password'"
+                                    [svgIcon]="'heroicons_solid:eye'"></mat-icon>
+                                <mat-icon
+                                    class="icon-size-5"
+                                    *ngIf="passwordConfirmField.type === 'text'"
+                                    [svgIcon]="'heroicons_solid:eye-off'"></mat-icon>
+                            </button>
+                            <!-- <mat-error *ngIf="torsAdd.get('passwordConfirm').hasError('required')">
+                                Password confirmation is required
+                            </mat-error>
+                            <mat-error *ngIf="torsAdd.get('passwordConfirm').hasError('mustMatch')">
+                                Passwords must match
+                            </mat-error> -->
+                        </mat-form-field>
+                    </div>
+                </div>
+               <div class="create mt-2 w-full">
+                <button type="submit"  class="bg-green-700 w-full py-3 px-8 text-lg font-semibold text-white rounded leading-5" >{{modify ? 'Update' :'Create'}} </button>
+               </div>
+            </form>                                     
+        </div>
+    </div>
+</div>

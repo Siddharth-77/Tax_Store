@@ -1,0 +1,371 @@
+<div class="tors-users w-full bg-green-100 rounded-md">
+    <div class="tors-users-inner bg-white m-5 pt-[25px] px-6 pb-3">
+        <div
+            class="tors-users-head-buttons w-full flex items-center justify-between"
+        >
+            <div class="tors-users-head">
+                <div class="tors-head flex items-center gap-2">
+                    <h2
+                        class="text-3xl font-extrabold text-neutral-900 leading-8"
+                    >
+                        Tors Users
+                    </h2>
+                    <p
+                        class="bg-green-700 w-10 text-[14px] text-center rounded px-[10px] text-white font-medium"
+                    >
+                        {{pageLength}}
+                    </p>
+                </div>
+                <div class="tors-head-para mt-1">
+                    <p
+                        class="text-base font-normal text-neutral-500 leading-6"
+                    >
+                        List of all users
+                    </p>
+                </div>
+            </div>
+            <div class="tors-users-buttons flex gap-3">
+                <div class="tors-users-buttons-1" *ngIf="lock">
+                    <button (click)="unLockUsers(selectedData)"
+                        class="bg-[#047857] text-[14px] font-semibold text-white px-4 py-2 rounded"
+                    >
+                        Unlock Selected
+                    </button>
+                </div>
+                <div class="tors-users-buttons-1" *ngIf="lock">
+                    <button (click)="lockUser(selectedData)"
+                        class="bg-[#EF4444] text-[14px] font-semibold text-white px-4 py-2 rounded"
+                    >
+                        Lock Selected
+                    </button>
+                </div>
+                <div class="tors-users-buttons-2">
+                    <button
+                        (click)="addUser()"
+                        class="bg-green-700 text-[14px] flex items-center justify-center gap-2  font-semibold text-white px-4 py-2 rounded"
+                    >
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                        <path d="M8 3.33337V12.6667" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M3.3335 8H12.6668" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg> Add New
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="tors-users-table-filter mt-4">
+            <div class="tors-users-table-filterr flex items-center justify-between p-3 rounded bg-green-50">
+                <div class="tors-users-search w-[425px]">
+                    <mat-form-field class="fuse-mat-no-subscript w-full">
+                        <mat-icon
+                            class="w-[21px] min-w-[21px]"
+                            matPrefix
+                            [svgIcon]="'heroicons_outline:search'"
+                        ></mat-icon>
+                        <input
+                            matInput
+                            [placeholder]="'Search by name, email, leader... '"
+                            (keyup.enter)="search($event.target.value)"
+                        />
+                    </mat-form-field>
+                    <p>Count: {{ count$ | async }}</p>
+                </div>
+                <div class="tors-top-fbutton">
+                    <button
+                        class="flex text-lg font-medium rounded-lg bg-white hover:shadow-lg duration-500"
+                        mat-button
+                        [matMenuTriggerFor]="menu"
+                    >
+                    <svg class="mr-1" xmlns="http://www.w3.org/2000/svg" width="16" height="17" viewBox="0 0 16 17" fill="none">
+                        <path d="M14.6668 2.65332H1.3335L6.66683 8.95999V13.32L9.3335 14.6533V8.95999L14.6668 2.65332Z" stroke="#64748B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                        Filter
+                    </button>
+                    <mat-menu
+                        #menu="matMenu"
+                        class="w-[207px] pt-[17px] px-[16px] rounded-[10px]"
+                    >
+                    <div class="active-inactive-radio">                      
+                        <mat-radio-group [(ngModel)]="activatedUsers" (change)="queryData()">
+                            <mat-radio-button class="text-lg font-medium text-neutral-800" value="all">Total Users List</mat-radio-button>
+                            <mat-radio-button class="text-lg font-medium text-neutral-800 mt-3" value="active">Activated Users</mat-radio-button>                        
+                            <mat-radio-button class="text-lg font-medium text-neutral-800 mt-3" value="deactive">Deactivated Users</mat-radio-button>
+                        </mat-radio-group>
+                    </div>
+                    <!-- <div class="sorting">                   
+                        <mat-radio-button class="text-lg font-medium text-neutral-800 mt-3" [(ngModel)]="sortAZ" (change)="queryData()">A-Z Sorting</mat-radio-button>                        
+                        <mat-radio-button class="text-lg font-medium text-neutral-800 my-3" [(ngModel)]="sortZA" (change)="queryData()">Z-A Sorting</mat-radio-button>
+                    </div> -->
+                    <div class="sorting mb-2">                   
+                        <mat-radio-group [(ngModel)]="sortingUsers" (change)="queryData()">                            
+                            <mat-radio-button class="text-lg font-medium text-neutral-800 mt-3" value="a-z">A-Z Sorting</mat-radio-button>                        
+                            <mat-radio-button class="text-lg font-medium text-neutral-800 mt-3" value="z-a">Z-A Sorting</mat-radio-button>
+                        </mat-radio-group>
+                    </div>
+                    </mat-menu>
+                </div>
+            </div>
+            <div class="tors-users-table mt-1">
+                <div class="mat-elevation-z8 shadow-none overflow-x-auto">
+                    <table class="w-full" mat-table [dataSource]="dataSource">
+                        <ng-container matColumnDef="checkbox">
+                            <th mat-header-cell *matHeaderCellDef>
+                                <div class="main-check">
+                                    <mat-checkbox  [(ngModel)]="isAllSelected" (change)="checkAllCheckboxes($event,checkData)"></mat-checkbox>
+                                </div>
+                            </th>
+                            <td mat-cell *matCellDef="let element of">
+                                <div class="sub-check">
+                                    <mat-checkbox [(ngModel)]="element.selected" (change)="updateSelectedData($event,element)" [disabled]="element._id === loginDetails._id"></mat-checkbox>
+                                </div>
+                            </td>
+                        </ng-container>
+
+                        <!-- Position Column -->
+                        <ng-container matColumnDef="username">
+                            <th mat-header-cell *matHeaderCellDef>
+                                <div class="tab flex items-center gap-2">
+                                    <h3
+                                        class="text-[12px] text-[#64748b] font-bold"
+                                    >
+                                        USERNAME
+                                    </h3>
+                                </div>
+                            </th>
+                            <td mat-cell *matCellDef="let element">
+                                <div
+                                    class="font-normal text-[14px] text-neutral-800"
+                                >
+                                    {{ element.userName }}
+                                </div>
+                            </td>
+                        </ng-container>
+
+                        <!-- Name Column -->
+                        <ng-container matColumnDef="firstname">
+                            <th mat-header-cell *matHeaderCellDef>
+                                <div class="tab flex items-center gap-2">
+                                    <h3
+                                        class="text-[12px] text-[#64748b] font-bold"
+                                    >
+                                        FIRSTNAME
+                                    </h3>
+                                </div>
+                            </th>
+                            <td
+                                mat-cell
+                                *matCellDef="let element"
+                            >
+                                <div
+                                    class="font-normal text-[14px] text-neutral-800"
+                                >
+                                    {{ element.firstName }}
+                                </div>
+                            </td>
+                        </ng-container>
+
+                        <!-- Weight Column -->
+                        <ng-container matColumnDef="lastname">
+                            <th mat-header-cell *matHeaderCellDef>
+                                <div class="tab flex items-center gap-2">
+                                    <h3
+                                        class="text-[12px] text-[#64748b] font-bold"
+                                    >
+                                        LASTNAME
+                                    </h3>
+                                </div>
+                            </th>
+                            <td mat-cell *matCellDef="let element">
+                                <div
+                                    class="font-normal text-[14px] text-neutral-800"
+                                >
+                                    {{ element.lastName }}
+                                </div>
+                            </td>
+                        </ng-container>
+
+                        <!-- Symbol Column -->
+                        <ng-container matColumnDef="email">
+                            <th mat-header-cell *matHeaderCellDef>
+                                <div class="tab flex items-center gap-2">
+                                    <h3
+                                        class="text-[12px] text-[#64748b] font-bold"
+                                    >
+                                        EMAIL
+                                    </h3>
+                                </div>
+                            </th>
+                            <td mat-cell *matCellDef="let element">
+                                <div
+                                    class="font-normal text-[14px] text-neutral-800"
+                                >
+                                    {{ element.email }}
+                                </div>
+                            </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="mobilenumber">
+                            <th mat-header-cell *matHeaderCellDef>
+                                <div class="tab">
+                                    <h3 class="text-[12px] text-[#64748b] font-bold">
+                                        MOBILE NUMBER
+                                    </h3>
+                                </div>
+                            </th>
+                            <td mat-cell *matCellDef="let element">
+                                <div
+                                    class="font-normal text-[14px] text-neutral-800"
+                                >
+                                    {{ element.phoneNumber }}
+                                </div>
+                            </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="role">
+                            <th mat-header-cell *matHeaderCellDef>
+                                <div class="tab flex items-center gap-2">
+                                    <h3 class="text-[12px] text-[#64748b] font-bold">
+                                        ROLE
+                                    </h3>
+                                </div>
+                            </th>
+                            <td mat-cell *matCellDef="let element">
+                                <div
+                                    class="font-normal text-[14px] text-neutral-800"
+                                >
+                                    {{ element.role }}
+                                </div>
+                            </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="hourlyreport">
+                            <th mat-header-cell *matHeaderCellDef>
+                                <div class="tab flex items-center gap-2">
+                                    <h3 class="text-[12px] text-[#64748b] font-bold">
+                                        HOURLY REPORT
+                                    </h3>
+                                </div>
+                            </th>
+                            <td mat-cell *matCellDef="let element">
+                                <div
+                                    class="font-semibold text-[14px] text-neutral-800"
+                                >
+                                    ${{ element.hourlyReport }}
+                                </div>
+                            </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="action">
+                            <th mat-header-cell *matHeaderCellDef>
+                                <div class="tab flex items-center gap-2">
+                                    <h3 class="text-[12px] text-[#64748b] font-bold">
+                                        ACTION
+                                    </h3>
+                                </div>
+                            </th>
+                            <td mat-cell *matCellDef="let element">
+                                <div
+                                    class="action-buttons flex items-center gap-3"
+                                >
+                                    <div class="button-1">
+                                        <mat-slide-toggle
+                                            [checked]="element.isActive"
+                                            (change)="toggleSwitch(element)"
+                                        ></mat-slide-toggle>
+                                    </div>
+                                    <div
+                                        class="button-1"
+                                        (click)="updateUser(element)"
+                                    >
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            width="22"
+                                            height="23"
+                                            viewBox="0 0 22 23"
+                                            fill="none"
+                                        >
+                                            <path
+                                                d="M10.0835 4.16321H3.66683C3.1806 4.16321 2.71428 4.35636 2.37047 4.70018C2.02665 5.044 1.8335 5.51031 1.8335 5.99654V18.8299C1.8335 19.3161 2.02665 19.7824 2.37047 20.1262C2.71428 20.4701 3.1806 20.6632 3.66683 20.6632H16.5002C16.9864 20.6632 17.4527 20.4701 17.7965 20.1262C18.1403 19.7824 18.3335 19.3161 18.3335 18.8299V12.4132"
+                                                stroke="#64748B"
+                                                stroke-opacity="0.6"
+                                                stroke-width="2"
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"
+                                            />
+                                            <path
+                                                d="M16.9585 2.78829C17.3232 2.42362 17.8178 2.21875 18.3335 2.21875C18.8492 2.21875 19.3438 2.42362 19.7085 2.78829C20.0732 3.15297 20.278 3.64757 20.278 4.16329C20.278 4.67902 20.0732 5.17362 19.7085 5.53829L11.0002 14.2466L7.3335 15.1633L8.25016 11.4966L16.9585 2.78829Z"
+                                                stroke="#64748B"
+                                                stroke-opacity="0.6"
+                                                stroke-width="2"
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"
+                                            />
+                                        </svg>
+                                    </div>
+                                    <div
+                                        class="button-1"
+                                        (click)="deleteUser(element)"
+                                    >
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            width="22"
+                                            height="23"
+                                            viewBox="0 0 22 23"
+                                            fill="none"
+                                        >
+                                            <path
+                                                d="M2.75 5.99658H4.58333H19.25"
+                                                stroke="#F87171"
+                                                stroke-width="2"
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"
+                                            />
+                                            <path
+                                                d="M17.4168 5.99662V18.83C17.4168 19.3162 17.2237 19.7825 16.8799 20.1263C16.536 20.4701 16.0697 20.6633 15.5835 20.6633H6.41683C5.9306 20.6633 5.46428 20.4701 5.12047 20.1263C4.77665 19.7825 4.5835 19.3162 4.5835 18.83V5.99662M7.3335 5.99662V4.16329C7.3335 3.67706 7.52665 3.21074 7.87047 2.86693C8.21428 2.52311 8.6806 2.32996 9.16683 2.32996H12.8335C13.3197 2.32996 13.786 2.52311 14.1299 2.86693C14.4737 3.21074 14.6668 3.67706 14.6668 4.16329V5.99662"
+                                                stroke="#F87171"
+                                                stroke-width="2"
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"
+                                            />
+                                            <path
+                                                d="M9.1665 10.58V16.08"
+                                                stroke="#F87171"
+                                                stroke-width="2"
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"
+                                            />
+                                            <path
+                                                d="M12.8335 10.58V16.08"
+                                                stroke="#F87171"
+                                                stroke-width="2"
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"
+                                            />
+                                        </svg>
+                                    </div>
+                                </div>
+                            </td>
+                        </ng-container>
+
+                        <tr
+                            mat-header-row
+                            *matHeaderRowDef="displayedColumns"
+                        ></tr>
+                        <tr
+                            mat-row
+                            *matRowDef="let row; columns: displayedColumns"
+                        ></tr>
+                    </table>
+
+                    <mat-paginator
+                        [pageSizeOptions]="[5, 10, 20]"
+                        [length]="pageLength"
+                        [pageSize]="pageSize"
+                        [pageIndex]="pageNumber - 1"
+                        (page)="getUserData()"
+                    >
+                    </mat-paginator>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

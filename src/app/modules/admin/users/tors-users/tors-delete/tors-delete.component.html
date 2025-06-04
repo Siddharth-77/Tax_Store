@@ -1,0 +1,17 @@
+<div class="dialog w-[5 00px] py-6 px-6">
+    <div class="dialog-user-data">
+        <div class="york text-center">
+            <i class="fa-solid fa-triangle-exclamation text-[45px] text-red-600"></i>
+        </div>
+        <div class="text-center mt-2">     
+            <p class="text-[24px] font-extrabold">Are you sure?</p>          
+       </div>
+        <div class=" text-center mt-2">     
+             <p class="text-[16px] font-semibold">Do you want to delete the user permenantly?</p>          
+        </div>
+        <div class=" text-center mt-5 flex justify-center gap-3">     
+            <button class="border-2 border-neutral-300 rounded-md text-black py-2 px-5 text-[16px] font-semibold" (click)="close()">Cancel</button> 
+            <button class="border-2  rounded-md text-red-800 bg-red-100 py-2 px-5 text-[16px] font-semibold" (click)="deleteTorsUser()">Delete</button>    
+       </div>
+    </div>
+</div>

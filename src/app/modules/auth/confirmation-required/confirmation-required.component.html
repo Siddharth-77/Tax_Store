@@ -1,0 +1,121 @@
+<div class="login-page bg-[#E5F4F0] my-auto mx-auto ">
+    <div class="loginpage-inner w-[755px] flex items-center bg-white rounded-2xl ">
+        <div class="loginpage-left-section">
+            <div class="login-left-inner w-[315px] bg-[#047857] px-[50px] pt-[50px] pb-[120px] rounded-l-2xl">
+                <div class="login-ledt-data relative">
+                    <div class="top-back-bg absolute top-[-67px] right-[-50px]">
+                        <img src="../../../../assets/logos/Vector.svg" alt="">
+                    </div>
+                    <div class="login-left-logo flex items-center mt-4">
+                        <img class="w-[32px]" src="../../../../assets/logos/Group 14.png" alt="">
+                        <img class="w-[129px]" src="../../../../assets/logos/Tax Store.png" alt="">
+                    </div>
+                    <div class="login-left-header my-15">
+                        <h2 class="font-extrabold text-[26px] mb-3 text-white">Welcome to our Tax Store</h2>
+                        <p class="font-normal text-[15px] text-white">Your Taxes, Our Expertise Perfect Match!<p>
+                    </div>
+                    <div class="login-left-profiles flex">
+                        <img class="w-[44px] absolute bottom-[-40px] left-[0px]" src="../../../../assets/logos/Ellipse 5.png" alt="">
+                        <img class="w-[44px] absolute bottom-[-40px] left-[30px]" src="../../../../assets/logos/Ellipse 6.png" alt="">
+                        <img class="w-[44px] absolute bottom-[-40px] left-[60px]" src="../../../../assets/logos/Ellipse 7.png" alt="">
+                        <img class="w-[44px] absolute bottom-[-40px] left-[90px]" src="../../../../assets/logos/Ellipse 8.png" alt="">
+                    </div>
+                    <div class="top-back-bg absolute left-[-70px]">
+                        <img src="../../../../assets/logos/Group 1.svg" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="loginpage-right-section">
+            <div class="w-[440px] px-[50px]">    
+                <!-- Title -->
+                <div class="mt-7 text-[24px] font-semibold">Sign in</div>
+    
+                <!-- Alert -->
+                <fuse-alert
+                    class="mt-8 -mb-4"
+                    *ngIf="showAlert"
+                    [appearance]="'outline'"
+                    [showIcon]="false"
+                    [type]="alert.type"
+                    [@shake]="alert.type === 'error'">
+                    {{alert.message}}
+                </fuse-alert>
+    
+                <!-- Sign in form -->
+                <form
+                    class="mt-8"
+                    [formGroup]="signInForm"
+                    #signInNgForm="ngForm">
+    
+                    <!-- Email field -->
+                    <mat-form-field class="w-[336px] min-h-[40px] h-[40px]">
+                        <mat-label class="text-[14px] font-medium text-neutral-800">Email address</mat-label>
+                        <input
+                            id="email"
+                            matInput
+                            [formControlName]="'email'">
+                        <mat-error *ngIf="signInForm.get('email').hasError('required')">
+                            Email address is required
+                        </mat-error>
+                        <mat-error *ngIf="signInForm.get('email').hasError('email')">
+                            Please enter a valid email address
+                        </mat-error>
+                    </mat-form-field>
+    
+                    <!-- Password field -->
+                    <mat-form-field class="w-[336px] mt-2">
+                        <mat-label class="text-[14px] font-medium text-neutral-800">Password</mat-label>
+                        <input
+                            id="password"
+                            matInput
+                            type="password"
+                            [formControlName]="'password'"
+                            #passwordField>
+                        <button
+                            mat-icon-button
+                            type="button"
+                            (click)="passwordField.type === 'password' ? passwordField.type = 'text' : passwordField.type = 'password'"
+                            matSuffix>
+                            <mat-icon
+                                class="icon-size-5"
+                                *ngIf="passwordField.type === 'password'"
+                                [svgIcon]="'heroicons_solid:eye'"></mat-icon>
+                            <mat-icon
+                                class="icon-size-5"
+                                *ngIf="passwordField.type === 'text'"
+                                [svgIcon]="'heroicons_solid:eye-off'"></mat-icon>
+                        </button>
+                        <mat-error>
+                            Password is required
+                        </mat-error>
+                    </mat-form-field>
+    
+                    <!-- Actions -->
+                    <div class="  mt-1.5">
+                        <a
+                            class="text-md font-bold text-[#047857] hover:underline"
+                            [routerLink]="['/forgot-password']">Forgot password?
+                        </a>
+                    </div>
+    
+                    <!-- Submit button -->
+                    <button
+                        class="fuse-mat-button-large w-[336px] mt-6 bg-[#047857] rounded min-h-[44px] h-[44px]"
+                        mat-flat-button
+                        [color]="'primary'"
+                        [disabled]="signInForm.disabled"
+                        (click)="signIn()">
+                        <span *ngIf="!signInForm.disabled">
+                            <h4 class="text-[16px] font-semibold">Sign in</h4>
+                        </span>
+                        <mat-progress-spinner
+                            *ngIf="signInForm.disabled"
+                            [diameter]="24"
+                            [mode]="'indeterminate'"></mat-progress-spinner>
+                    </button>            
+                </form>
+            </div>                       
+        </div>
+    </div>
+</div>
