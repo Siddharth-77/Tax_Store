@@ -1,9 +1,7 @@
-name: Node.js CI/CD (Tax_Store)
+name: CI/CD (Tax_Store)
 
 on:
   push:
-    branches: [ main ]
-  pull_request:
     branches: [ main ]
 
 jobs:
@@ -22,11 +20,14 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Run Webpack build
-        run: npm run build -- --base-href=/Tax_Store/
+      - name: Build Angular App with Base Href
+        run: npm run build
+
+      - name: Add .nojekyll file (optional)
+        run: echo "" > dist/Tax_Store/.nojekyll
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          branch: gh-pages         
-          folder: dist/Tax_Store       
+          branch: gh-pages
+          folder: dist/Tax_Store
