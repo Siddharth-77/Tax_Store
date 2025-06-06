@@ -62,14 +62,7 @@
                             "src/styles/styles.scss",
                             "src/styles/tailwind.scss"
                         ],
-                        "scripts": {
-                              "ng": "ng",
-                              "start": "ng serve",
-                              "build": "ng build --configuration production --base-href=/Tax_Store/",
-                              "test": "ng test",
-                              "lint": "ng lint"
-                            }
-
+                        "scripts": []
                     },
                     "configurations": {
                         "production": {
