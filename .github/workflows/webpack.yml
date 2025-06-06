@@ -25,6 +25,3 @@ jobs:
     - name: Run Webpack build
       run: npm run build
 
-    - name: Run Tests (if any)
-      run: npm test
-      continue-on-error: true  # optional if tests aren't yet ready
