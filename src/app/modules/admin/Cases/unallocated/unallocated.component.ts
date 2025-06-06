@@ -47,7 +47,7 @@ export class UnallocatedComponent implements OnInit {
 
     ngOnInit(): void {
         this.getUnallocatedData();
-        this.downloadUrl = environment.downloadUrl;
+        // this.downloadUrl = environment.downloadUrl;
     }
 
     changeTeam() {
@@ -80,6 +80,6 @@ export class UnallocatedComponent implements OnInit {
     }
 
     unallocatedDownload(){
-        window.open(this.downloadUrl + 'unallocatedReport.xlsx');
+        // window.open(this.downloadUrl + 'unallocatedReport.xlsx');
     }
 }

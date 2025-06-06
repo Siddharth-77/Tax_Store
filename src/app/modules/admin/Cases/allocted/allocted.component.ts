@@ -28,7 +28,7 @@ export class AlloctedComponent implements OnInit {
 
     ngOnInit(): void {
         this.getAllocatedData();
-        this.downloadUrl = environment.downloadUrl;
+        // this.downloadUrl = environment.downloadUrl;
     }
 
     @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
@@ -72,6 +72,6 @@ export class AlloctedComponent implements OnInit {
         this.getAllocatedData();
     }
     allocatedDownload() {
-      window.open(this.downloadUrl + 'allocatedReport.xlsx');
+    //   window.open(this.downloadUrl + 'allocatedReport.xlsx');
     }
 }

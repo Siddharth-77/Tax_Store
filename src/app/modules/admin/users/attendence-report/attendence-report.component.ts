@@ -53,7 +53,7 @@ export class AttendenceReportComponent implements OnInit {
 
     ngOnInit(): void {
         this.getAttendenceData();
-        this.downloadUrl = environment.downloadUrl;
+        // this.downloadUrl = environment.downloadUrl;
     }
 
     onDateChange(type: 'start' | 'end', event: any) {
@@ -109,7 +109,7 @@ export class AttendenceReportComponent implements OnInit {
         this.getAttendenceData();
     }
     attendanceDownload(){
-        window.open(this.downloadUrl + 'attendenceReport.xlsx', '_blank');
+        // window.open(this.downloadUrl + 'attendenceReport.xlsx', '_blank');
     }
 
 }

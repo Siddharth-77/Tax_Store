@@ -47,7 +47,7 @@ export class NewenquiresComponent implements OnInit {
 
     ngOnInit(): void {
         this.getUserData();
-        this.downloadUrl = environment.downloadUrl;
+        // this.downloadUrl = environment.downloadUrl;
     }
 
     addUser() {
@@ -83,7 +83,7 @@ export class NewenquiresComponent implements OnInit {
         this.getUserData();
     }
     xlsxDown(){
-        window.open(this.downloadUrl + 'enquiresReport.xlsx', '_blank');
+        // window.open(this.downloadUrl + 'enquiresReport.xlsx', '_blank');
     }
 
     onFilesSelected(){
